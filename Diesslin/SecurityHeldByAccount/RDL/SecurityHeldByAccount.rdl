@@ -1,0 +1,4084 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:DataSourceID>302a40bf-2ff4-42db-bbe2-5c8cc6fcd2ce</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Holdings">
+      <Fields>
+        <Field Name="PortfolioBaseIDOrder">
+          <DataField>PortfolioBaseIDOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseID">
+          <DataField>PortfolioBaseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseCode">
+          <DataField>PortfolioBaseCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrimaryContactCode">
+          <DataField>PrimaryContactCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Custom02">
+          <DataField>Custom02</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading1">
+          <DataField>ReportHeading1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading2">
+          <DataField>ReportHeading2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading3">
+          <DataField>ReportHeading3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportingCurrencyName">
+          <DataField>ReportingCurrencyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SecuritySymbol">
+          <DataField>SecuritySymbol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MarketValue">
+          <DataField>MarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SecurityName">
+          <DataField>SecurityName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FormatQuantity">
+          <DataField>FormatQuantity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="CostBasis">
+          <DataField>CostBasis</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="FormatReportingCurrency">
+          <DataField>FormatReportingCurrency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec [APXUserCustom].[pSecurityHeldByAccount] @Portfolios, 
+	@Date, @UseSettlementDate, @ReportingCurrencyCode, @ShowTaxLotsLumped, 
+	@LocaleID, @PriceTypeID, @SessionGuid, @ShowCurrencyFullPrecision, @SecType, @Symbol</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Portfolios">
+            <Value>=Parameters!Portfolios.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Date">
+            <Value>=Parameters!Date.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@SecType">
+            <Value>=Parameters!SecType.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@UseSettlementDate">
+            <Value>=Parameters!UseSettlementDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ShowTaxLotsLumped">
+            <Value>=Parameters!ShowTaxLotsLumped.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Symbol">
+            <Value>=Parameters!Symbol.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReportingCurrencyCode">
+            <Value>=Parameters!ReportingCurrencyCode.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ShowCurrencyFullPrecision">
+            <Value>=Parameters!ShowCurrencyFullPrecision.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PriceTypeID">
+            <Value>=Parameters!PriceTypeID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Filters>
+        <Filter>
+          <FilterExpression>=IIF(Parameters!ShowZeroShares.Value,1,Fields!Quantity.Value)</FilterExpression>
+          <Operator>GreaterThan</Operator>
+          <FilterValues>
+            <FilterValue DataType="Float">0</FilterValue>
+          </FilterValues>
+        </Filter>
+      </Filters>
+    </DataSet>
+    <DataSet Name="SecurityType">
+      <Fields>
+        <Field Name="ClassificationMemberCode">
+          <DataField>ClassificationMemberCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberName">
+          <DataField>ClassificationMemberName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetClassificationMember -19</CommandText>
+      </Query>
+    </DataSet>
+    <DataSet Name="SecuritySymbol">
+      <Fields>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec [APXUserCustom].[pGetSecuritySymbol] @SecType</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@SecType">
+            <Value>=Parameters!SecType.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="Currency">
+      <Fields>
+        <Field Name="CurrencyDisplayName">
+          <DataField>CurrencyDisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetCurrency</CommandText>
+      </Query>
+    </DataSet>
+    <DataSet Name="Configuration">
+      <Fields>
+        <Field Name="AccruedInterestID">
+          <DataField>AccruedInterestID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="AccruePerfFees">
+          <DataField>AccruePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AllocatePerfFees">
+          <DataField>AllocatePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AnnualizeReturns">
+          <DataField>AnnualizeReturns</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BondCostBasisID">
+          <DataField>BondCostBasisID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="FeeMethod">
+          <DataField>FeeMethod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FirmLogoURL">
+          <DataField>FirmLogoURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmName">
+          <DataField>FirmName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MFBasisIncludeReinvest">
+          <DataField>MFBasisIncludeReinvest</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PageSize">
+          <DataField>PageSize</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="ReportingCurrencyCode">
+          <DataField>ReportingCurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RequiredDisclaimerID">
+          <DataField>RequiredDisclaimerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ServerURL">
+          <DataField>ServerURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrencyFullPrecision">
+          <DataField>ShowCurrencyFullPrecision</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentMBSFace">
+          <DataField>ShowCurrentMBSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentTIPSFace">
+          <DataField>ShowCurrentTIPSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustryGroup">
+          <DataField>ShowIndustryGroup</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustrySector">
+          <DataField>ShowIndustrySector</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowMultiCurrency">
+          <DataField>ShowMultiCurrency</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowSecuritySymbol">
+          <DataField>ShowSecuritySymbol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowTaxlotsLumped">
+          <DataField>ShowTaxlotsLumped</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="StyleSetID">
+          <DataField>StyleSetID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UseACB">
+          <DataField>UseACB</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="UseSettlementDate">
+          <DataField>UseSettlementDate</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="YieldOptionID">
+          <DataField>YieldOptionID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="LanguageID">
+          <DataField>LanguageID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pSessionInfoSetGuid @SessionGuid
+exec APXUser.pGetConfiguration</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+    </DataSet>
+    <DataSet Name="LocaleInfo">
+      <Fields>
+        <Field Name="LocaleName">
+          <DataField>LocaleName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetLocaleInfo</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="UseSettlementDate">
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetUseSettlementDate</CommandText>
+      </Query>
+    </DataSet>
+    <DataSet Name="PriceType">
+      <Fields>
+        <Field Name="PriceTypeName">
+          <DataField>PriceTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetPriceType</CommandText>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.5in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.5in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.5in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.5in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.05in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.03125in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ReportingCurrencyName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ReportingCurrencyName.Value</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox24">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox16">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox16</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox32">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox32</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox8">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox36">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox36</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox10">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox40">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox40</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox44">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox48">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox48</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox52">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox52</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle1">
+                      <ReportItems>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Security: "+First(Fields!SecuritySymbol.Value, "Holdings")+" ("+First(Fields!SecurityName.Value, "Holdings")+")"</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <Height>0.25in</Height>
+                          <Width>9.4in</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                    <ColSpan>16</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1825in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Portfolio Code</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox25">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox25</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox17">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Custom02</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox29">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox29</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox21">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Email</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox21</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox33">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox33</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Name 1</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox37">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Name 2</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox41">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox41</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Name 3</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox45">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox45</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Quantity</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox49">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox49</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Market Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <ToolTip>ColumnHeader</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox53">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox53</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                          <Width>0.01in</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>#cccccc</Color>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PrimaryContactCode">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!PrimaryContactCode.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PrimaryContactCode</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>16</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="PortfolioBaseCode">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!PortfolioBaseCode.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>PortfolioBaseCode</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox26">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox26</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Custom02">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Custom02.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Custom02</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox30">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Email">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Email.Value</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Email</rd:DefaultName>
+                      <ActionInfo>
+                        <Actions>
+                          <Action>
+                            <Hyperlink>="MailTo:" &amp; Fields!Email.Value</Hyperlink>
+                          </Action>
+                        </Actions>
+                      </ActionInfo>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox34">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox34</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ReportHeading1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ReportHeading1.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ReportHeading1</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox38">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ReportHeading2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ReportHeading2.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ReportHeading2</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox42">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ReportHeading3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ReportHeading3.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ReportHeading3</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox46">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Quantity">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Quantity.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>=Fields!FormatQuantity.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Quantity</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox50">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MarketValue">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!MarketValue.Value</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>=Fields!FormatReportingCurrency.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MarketValue</rd:DefaultName>
+                      <ToolTip>Detail</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox54">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Normal</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox54</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox74">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox74</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox75">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox75</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox76">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox76</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox77">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox77</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox78">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox78</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox79">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox79</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox80">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox80</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox81">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox81</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox82">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox82</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox83">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox83</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox84">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox84</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox85">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox85</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Quantity2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Quantity.Value)</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>=Fields!FormatQuantity.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Quantity2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox87">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox87</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MarketValue2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!MarketValue.Value)</Value>
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>=Fields!FormatReportingCurrency.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MarketValue2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox89">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox89</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1825in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox27">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox27</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox19">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox19</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox31">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox31</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox23">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox35">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox35</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox6">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox39">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox39</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox14">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox43">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox43</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox15">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox47">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox47</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Quantity1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!Quantity.Value)</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>=Fields!FormatQuantity.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Quantity1</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox51">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox51</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="MarketValue1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!MarketValue.Value)</Value>
+                              <Style>
+                                <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>=Fields!FormatReportingCurrency.Value</Format>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <BackgroundColor>=Code.StyleSheetValue("GrandTotalBackgroundColor")</BackgroundColor>
+                            <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                            <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                            <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                            <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                            <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                            <TextAlign>Right</TextAlign>
+                            <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>MarketValue1</rd:DefaultName>
+                      <ToolTip>GrandTotal</ToolTip>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <FontStyle>=Code.StyleSheetValue("GrandTotalStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("GrandTotalFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("GrandTotalSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("GrandTotalWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("GrandTotalDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("GrandTotalColor")</Color>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox55">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox55</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Visibility>
+                <Hidden>true</Hidden>
+              </Visibility>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Group1">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!PrimaryContactCode.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!PrimaryContactCode.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+            <TablixMember />
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Holdings</DataSetName>
+        <Top>0in</Top>
+        <Height>1.20875in</Height>
+        <Width>10.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>1.20875in</Height>
+    <Style />
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Session Guid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Portfolios">
+      <DataType>String</DataType>
+      <Prompt>Portfolios</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Date">
+      <DataType>DateTime</DataType>
+      <Prompt>Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SecType">
+      <DataType>String</DataType>
+      <Prompt>Security Type</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SecurityType</DataSetName>
+          <ValueField>ClassificationMemberCode</ValueField>
+          <LabelField>ClassificationMemberName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="Symbol">
+      <DataType>String</DataType>
+      <Prompt>Symbol</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SecuritySymbol</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ReportingCurrencyCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ReportingCurrencyCode</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Reporting Currency</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Currency</DataSetName>
+          <ValueField>CurrencyCode</ValueField>
+          <LabelField>CurrencyDisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ShowTaxLotsLumped">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ShowTaxlotsLumped</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>ShowTaxLotsLumped</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShowCurrencyFullPrecision">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ShowCurrencyFullPrecision</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>ShowCurrencyFullPrecision</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShowZeroShares">
+      <DataType>Boolean</DataType>
+      <Prompt>Show Portfolios with Zero Shares</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="UseSettlementDate">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>UseSettlementDate</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>UseSettlementDate</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>UseSettlementDate</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="LocaleID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>LocaleID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Locale</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>LocaleInfo</DataSetName>
+          <ValueField>LocaleID</ValueField>
+          <LabelField>LocaleName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="PriceTypeID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>PriceTypeID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Price Set</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>PriceType</DataSetName>
+          <ValueField>PriceTypeID</ValueField>
+          <LabelField>PriceTypeName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="FirmName">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>FirmName</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ServerURL">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ServerURL</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ServerURL</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Security Cross Reference</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report Title</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>
+		Private cHeading1 as Object
+		Private cHeading2 as Object
+		Private cHeading3 as Object
+		Private cCurrency as Object
+		Private cReportDate as Object
+		Private cSettlement as Object
+		Private cFirmLogo as Object
+
+		Protected Overrides Sub OnInit()
+		cHeading1 = nothing
+		cHeading2 = nothing
+		cHeading3 = nothing
+		cCurrency = nothing
+		cReportDate = nothing
+		cSettlement = nothing
+		cFirmLogo = nothing
+		End Sub
+
+		Public Function GetReportHeading1(ReportHeading1 as Object) as String
+		if ReportHeading1 is nothing
+		return cHeading1
+		else
+		cHeading1 = ReportHeading1
+		return cHeading1
+		end if
+		End Function
+
+		Public Function GetReportHeading2(ReportHeading2 as Object) as String
+		if ReportHeading2 is nothing
+		return cHeading2
+		else
+		cHeading2 = ReportHeading2
+		return cHeading2
+		end if
+		End Function
+
+		Public Function GetReportHeading3(ReportHeading3 as Object) as String
+		if ReportHeading3 is nothing
+		return cHeading3
+		else
+		cHeading3 = ReportHeading3
+		return cHeading3
+		end if
+		End Function
+
+		Public Function GetCurrency(Currency as Object) as String
+		if Currency is nothing
+		return cCurrency
+		else
+		cCurrency = Currency
+		return cCurrency
+		end if
+		End Function
+
+		Public Function GetReportDate( ReportDate as Object) as String
+		if ReportDate is nothing
+		return cReportDate
+		else
+		cReportDate = ReportDate
+		return cReportDate
+		end if
+		End Function
+
+		Public Function GetSettlement( Settlement as Object) as String
+		if Settlement is nothing
+		return cSettlement
+		else
+		cSettlement = Settlement
+		return cSettlement
+		end if
+		End Function
+
+		Public Function GetFirmLogo( FirmLogo as Object) as String
+		if FirmLogo is nothing
+		return cFirmLogo
+		else
+		cFirmLogo = FirmLogo
+		return cFirmLogo
+		end if
+		End Function
+
+		Dim StyleSheetHash As System.Collections.Hashtable
+
+		Public Function InitStyleSheet()
+
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		xmlDocument.LoadXml(Report.Parameters!StyleSheetXML.Value)
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("StyleSheetInfo")
+
+		StyleSheetHash = New System.Collections.Hashtable()
+
+		For Each a As System.Xml.XmlAttribute In rootNode.Attributes
+		StyleSheetHash.Add(a.Name, a.Value)
+		Next
+
+		End Function
+
+		Public Function StyleSheetValue(StyleSheetValueName As String) As String
+
+		If (styleSheetHash Is Nothing)
+		InitStyleSheet()
+		End If
+
+		If (StyleSheetHash.ContainsKey(StyleSheetValueName))
+		Return StyleSheetHash(StyleSheetValueName)
+		End If
+
+		Return Nothing
+
+		End Function
+
+	</Code>
+  <Width>10.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.8in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Rectangle Name="Rectangle6">
+          <ReportItems>
+            <Image Name="FirmLogoImage">
+              <Source>External</Source>
+              <Value>="logo.jpg"</Value>
+              <Sizing>FitProportional</Sizing>
+              <Height>0.7in</Height>
+              <Width>1.25in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Line Name="line2">
+              <Top>0.75in</Top>
+              <Height>0in</Height>
+              <Width>10.5in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Color>=Code.StyleSheetValue("HeaderLineColor")</Color>
+                  <Style>Solid</Style>
+                  <Width>=Code.StyleSheetValue("HeaderLineWidth")</Width>
+                </Border>
+              </Style>
+            </Line>
+            <Textbox Name="ReportTitle">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ReportTitle.Value</Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <TextDecoration>None</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.05in</Top>
+              <Left>5.5in</Left>
+              <Height>0.3in</Height>
+              <Width>5in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border />
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="txtReportDate">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Convert.ToDateTime(Parameters!Date.Value).ToString("d", Globalization.CultureInfo.GetCultureInfo(Parameters!LocaleID.Value))</Value>
+                      <Style>
+                        <TextDecoration>None</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.56in</Top>
+              <Left>5.5in</Left>
+              <Height>0.16in</Height>
+              <Width>5in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border />
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="ReportingCurrency">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!ReportingCurrencyName.Value, "Holdings")</Value>
+                      <Style>
+                        <TextDecoration>None</TextDecoration>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.37639in</Top>
+              <Left>5.5in</Left>
+              <Height>0.16in</Height>
+              <Width>5in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border />
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <KeepTogether>true</KeepTogether>
+          <Height>0.8in</Height>
+          <Width>10.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Rectangle>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.3in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="line1">
+          <Top>0.05in</Top>
+          <Height>0in</Height>
+          <Width>10.5in</Width>
+          <Style>
+            <Border>
+              <Color>=Code.StyleSheetValue("FooterLineColor")</Color>
+              <Style>Solid</Style>
+              <Width>=Code.StyleSheetValue("FooterLineWidth")</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="FirmName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!FirmName.Value</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.1in</Top>
+          <Height>0.2in</Height>
+          <Width>10.5in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border />
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style />
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.37in</TopMargin>
+    <BottomMargin>0.36in</BottomMargin>
+    <Style />
+  </Page>
+  <Language>en-US</Language>
+  <CodeModules>
+    <CodeModule>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</CodeModule>
+  </CodeModules>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>968ed5ce-9e6d-46b2-8a4c-4ec38bd64264</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>

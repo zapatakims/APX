@@ -1,0 +1,2993 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle2">
+        <ReportItems>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.59375in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.05in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.75in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.05in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.75in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.05in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.75in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.05in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.75in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Inception (" &amp; Fields!InceptionToDatePeriodFromDate.Value &amp; ")"</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox8">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox9">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ClassificationName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Parameters!ClassificationID.Label</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox303">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox303</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="MTDColHead">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!MonthToDateHeader.Value</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox184">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox184</rd:DefaultName>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="QTDColHead">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!QuarterToDateHeader.Value</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox186">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox186</rd:DefaultName>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="YTDColHead">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!YearToDateHeader.Value</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox188">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox188</rd:DefaultName>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ITDColHead">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!InceptionToDateHeader.Value</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("ColumnHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("ColumnHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("ColumnHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("ColumnHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("ColumnHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("ColumnHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("ColumnHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox937">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox937</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox942">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox942</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox947">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox947</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox948">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox948</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox949">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox949</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox950">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox950</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox951">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox951</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox952">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox952</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox959">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>#333333</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox959</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="IndexHeader">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Fields!cCategory.Value = "3_Index", "Index", nothing)</Value>
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <DataElementOutput>NoOutput</DataElementOutput>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox893">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox893</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox898">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox898</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox899">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox899</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox900">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox900</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox901">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox901</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox902">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox902</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox903">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox903</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox910">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=Code.StyleSheetValue("SectionHeaderStyle")</FontStyle>
+                                    <FontFamily>=Code.StyleSheetValue("SectionHeaderFamily")</FontFamily>
+                                    <FontSize>=Code.StyleSheetValue("SectionHeaderSize")</FontSize>
+                                    <FontWeight>=Code.StyleSheetValue("SectionHeaderWeight")</FontWeight>
+                                    <TextDecoration>=Code.StyleSheetValue("SectionHeaderDecoration")</TextDecoration>
+                                    <Color>=Code.StyleSheetValue("SectionHeaderColor")</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox910</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=Code.StyleSheetValue("SectionHeaderBackgroundColor")</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ClassificationMemberName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=iif(Fields!cIsTotal.Value, "Account",Fields!ClassificationMemberName.Value)</Value>
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox305">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox305</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="MTDTWR">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!MonthToDateEffectiveTWR.Value</Value>
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox185">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox185</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="QTDTWR">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!QuarterToDateEffectiveTWR.Value</Value>
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox187">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox187</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="YTDTWR">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!YearToDateEffectiveTWR.Value</Value>
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox189">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00;(0.00)</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox189</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ITDTWR">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!InceptionToDateEffectiveTWR.Value</Value>
+                                  <Style>
+                                    <FontStyle>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalStyle"),Code.StyleSheetValue("DetailStyle"))</FontStyle>
+                                    <FontFamily>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalFamily"),Code.StyleSheetValue("DetailFamily"))</FontFamily>
+                                    <FontSize>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalSize"),Code.StyleSheetValue("DetailSize"))</FontSize>
+                                    <FontWeight>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalWeight"),Code.StyleSheetValue("DetailWeight"))</FontWeight>
+                                    <Format>0.00</Format>
+                                    <TextDecoration>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalDecoration"),Code.StyleSheetValue("DetailDecoration"))</TextDecoration>
+                                    <Color>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalColor"),Code.StyleSheetValue("DetailColor"))</Color>
+                                    <Language>=Fields!cLanguage.Value</Language>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#cccccc</Color>
+                              <Style>None</Style>
+                              <Width>0.01in</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=iif(Fields!cCategory.Value = "2_Total", "Solid","None")</Style>
+                            </TopBorder>
+                            <BackgroundColor>=iif(Fields!cCategory.Value = "2_Total", Code.StyleSheetValue("GrandTotalBackgroundColor"),iif(RowNumber("IsIndex") Mod 2, Code.StyleSheetValue("AltDetailBackgroundColor1"),Code.StyleSheetValue("AltDetailBackgroundColor2")))</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!DayToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!MonthToDatesShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!QuarterToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!QuarterToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!YearToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!YearToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!Latest1YearShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Not Fields!InceptionToDateShowPeriod.Value</Hidden>
+                  </Visibility>
+                </TablixMember>
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="IsIndex">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!cCategory.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!PortfolioBaseIDOrder.Value</Value>
+                    </SortExpression>
+                    <SortExpression>
+                      <Value>=Fields!cCategory.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=iif(Fields!cCategory.Value = "3_Index", False, True)</Hidden>
+                      </Visibility>
+                      <KeepTogether>true</KeepTogether>
+                    </TablixMember>
+                    <TablixMember>
+                      <Visibility>
+                        <Hidden>=iif(Fields!cCategory.Value = "3_Index", False, True)</Hidden>
+                      </Visibility>
+                      <KeepTogether>true</KeepTogether>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="Details" />
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!IsIndex.Value</Value>
+                            </SortExpression>
+                            <SortExpression>
+                              <Value>=Fields!ClassificationMemberOrder.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <KeepTogether>true</KeepTogether>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+            <KeepTogether>true</KeepTogether>
+            <DataSetName>PerformanceHistoryTable</DataSetName>
+            <Top>0.3in</Top>
+            <Height>1.5in</Height>
+            <Width>4.79375in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="PerformanceHistoryHeader">
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Performance History</Value>
+                    <Style>
+                      <FontStyle>=Code.StyleSheetValue("SectionTitleStyle")</FontStyle>
+                      <FontFamily>=Code.StyleSheetValue("SectionTitleFamily")</FontFamily>
+                      <FontSize>=Code.StyleSheetValue("SectionTitleSize")</FontSize>
+                      <FontWeight>=Code.StyleSheetValue("SectionTitleWeight")</FontWeight>
+                      <TextDecoration>=Code.StyleSheetValue("SectionTitleDecoration")</TextDecoration>
+                      <Color>=Code.StyleSheetValue("SectionTitleColor")</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Height>0.3in</Height>
+            <Width>4.79375in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Color>DarkGray</Color>
+              </Border>
+              <BackgroundColor>=Code.StyleSheetValue("SectionTitleBackgroundColor")</BackgroundColor>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Height>1.8in</Height>
+        <Width>4.79375in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>1.8in</Height>
+    <Style />
+  </Body>
+  <Width>4.79375in</Width>
+  <Page>
+    <PageHeight>6in</PageHeight>
+    <PageWidth>5in</PageWidth>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>08d2000a-cbb1-468d-964e-f7f03e99440e</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Classification">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetReportingClassification</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationID">
+          <DataField>ClassificationID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationName">
+          <DataField>ClassificationName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Configuration">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+					EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+					EXEC APXUser.pGetConfiguration
+				</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="AccruedInterestID">
+          <DataField>AccruedInterestID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="AccruePerfFees">
+          <DataField>AccruePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AllocatePerfFees">
+          <DataField>AllocatePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AnnualizeReturns">
+          <DataField>AnnualizeReturns</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="BondCostBasisID">
+          <DataField>BondCostBasisID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="FeeMethod">
+          <DataField>FeeMethod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FirmLogoURL">
+          <DataField>FirmLogoURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmName">
+          <DataField>FirmName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MFBasisIncludeReinvest">
+          <DataField>MFBasisIncludeReinvest</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="ReportingCurrencyCode">
+          <DataField>ReportingCurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RequiredDisclaimerID">
+          <DataField>RequiredDisclaimerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ServerURL">
+          <DataField>ServerURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrencyFullPrecision">
+          <DataField>ShowCurrencyFullPrecision</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentMBSFace">
+          <DataField>ShowCurrentMBSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentTIPSFace">
+          <DataField>ShowCurrentTIPSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustryGroup">
+          <DataField>ShowIndustryGroup</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustrySector">
+          <DataField>ShowIndustrySector</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowMultiCurrency">
+          <DataField>ShowMultiCurrency</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowSecuritySymbol">
+          <DataField>ShowSecuritySymbol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowTaxLotsLumped">
+          <DataField>ShowTaxlotsLumped</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="StyleSetID">
+          <DataField>StyleSetID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SystemCurrencyCode">
+          <DataField>SystemCurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UseACB">
+          <DataField>UseACB</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="UseSettlementDate">
+          <DataField>UseSettlementDate</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="YieldOptionID">
+          <DataField>YieldOptionID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="PerformanceHistoryTable">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@PortfolioBaseID">
+            <Value>=Parameters!PortfolioBaseID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PortfolioBaseIDOrder">
+            <Value>=Parameters!PortfolioBaseIDOrder.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataHandle">
+            <Value>=Parameters!DataHandle.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReportingCurrencyCode">
+            <Value>=Parameters!ReportingCurrencyCode.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Periods">
+            <Value>=Parameters!Periods.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Periods_ANN">
+            <Value>=Parameters!Periods_ANN.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AnnualizeReturns">
+            <Value>=Parameters!AnnualizeReturns.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ShowIndexes">
+            <Value>=Parameters!ShowIndexes.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>Declare @FromDate datetime
+
+--exec APXSSRS.pReportPerformanceHistoryPeriodDataHandle
+exec APXUserCustom.pReportPerformanceHistoryPeriodDataHandle_B85383SA
+  -- Required Parameters
+  @SessionGuid = @SessionGuid,
+  @PortfolioBaseID = @PortfolioBaseID,
+  @PortfolioBaseIDOrder = @PortfolioBaseIDOrder,
+  @DataHandle = @DataHandle,
+  @Periods = @Periods,
+  @ReportingCurrencyCode = @ReportingCurrencyCode,
+  @Periods_ANN = @Periods_ANN,
+
+  -- Optional parameters
+  @AnnualizeReturns = @AnnualizeReturns,
+  @LocaleID = @LocaleID,
+  @ShowIndexes = @ShowIndexes</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationMemberCode">
+          <DataField>ClassificationMemberCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberName">
+          <DataField>ClassificationMemberName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberOrder">
+          <DataField>ClassificationMemberOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateEffectiveTWR">
+          <DataField>DayToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseIDOrder">
+          <DataField>PortfolioBaseIDOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateEndingMarketValue">
+          <DataField>DayToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PrefixedPortfolioBaseCode">
+          <DataField>PrefixedPortfolioBaseCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateHeader">
+          <DataField>DayToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DayToDatePeriodFromDate">
+          <DataField>DayToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateShowPeriod">
+          <DataField>DayToDateShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="FormatReportingCurrency">
+          <DataField>FormatReportingCurrency</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ThruDate">
+          <DataField>ThruDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateEffectiveTWR">
+          <DataField>InceptionToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateEndingMarketValue">
+          <DataField>InceptionToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateHeader">
+          <DataField>InceptionToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDatePeriodFromDate">
+          <DataField>InceptionToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateShowPeriod">
+          <DataField>InceptionToDateShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="IsIndex">
+          <DataField>IsIndex</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearEffectiveTWR">
+          <DataField>Latest1YearEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearEndingMarketValue">
+          <DataField>Latest1YearEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearHeader">
+          <DataField>Latest1YearHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearPeriodFromDate">
+          <DataField>Latest1YearPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearShowPeriod">
+          <DataField>Latest1YearShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsEffectiveTWR">
+          <DataField>Latest3MonthsEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsEndingMarketValue">
+          <DataField>Latest3MonthsEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsHeader">
+          <DataField>Latest3MonthsHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsPeriodFromDate">
+          <DataField>Latest3MonthsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsShowPeriod">
+          <DataField>Latest3MonthsShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsEffectiveTWR">
+          <DataField>Latest3YearsEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsEndingMarketValue">
+          <DataField>Latest3YearsEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsHeader">
+          <DataField>Latest3YearsHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsPeriodFromDate">
+          <DataField>Latest3YearsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsShowPeriod">
+          <DataField>Latest3YearsShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsEffectiveTWR">
+          <DataField>Latest5YearsEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsEndingMarketValue">
+          <DataField>Latest5YearsEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsHeader">
+          <DataField>Latest5YearsHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsPeriodFromDate">
+          <DataField>Latest5YearsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsShowPeriod">
+          <DataField>Latest5YearsShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDateEffectiveTWR">
+          <DataField>MonthToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDateEndingMarketValue">
+          <DataField>MonthToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDateHeader">
+          <DataField>MonthToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDatePeriodFromDate">
+          <DataField>MonthToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDatesShowPeriod">
+          <DataField>MonthToDatesShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseID">
+          <DataField>PortfolioBaseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateEffectiveTWR">
+          <DataField>QuarterToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateEndingMarketValue">
+          <DataField>QuarterToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateHeader">
+          <DataField>QuarterToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDatePeriodFromDate">
+          <DataField>QuarterToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateShowPeriod">
+          <DataField>QuarterToDateShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateEndingMarketValue">
+          <DataField>SinceDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWREffectiveTWR">
+          <DataField>SinceDateTWREffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWRHeader">
+          <DataField>SinceDateTWRHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWRPeriodFromDate">
+          <DataField>SinceDateTWRPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWRShowPeriod">
+          <DataField>SinceDateTWRShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateEffectiveTWR">
+          <DataField>WeekToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateEndingMarketValue">
+          <DataField>WeekToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateHeader">
+          <DataField>WeekToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDatePeriodFromDate">
+          <DataField>WeekToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateShowPeriod">
+          <DataField>WeekToDateShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateEffectiveTWR">
+          <DataField>YearToDateEffectiveTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateEndingMarketValue">
+          <DataField>YearToDateEndingMarketValue</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateHeader">
+          <DataField>YearToDateHeader</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="YearToDatePeriodFromDate">
+          <DataField>YearToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateShowPeriod">
+          <DataField>YearToDateShowPeriod</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="cBackgroundColor">
+          <Value>=IIf(Fields!cIsTotal.Value, "#c8d8e6", "White")</Value>
+        </Field>
+        <Field Name="cCategory">
+          <Value>=IIf(Fields!IsIndex.Value,"3_Index",IIf(Fields!cIsTotal.Value,"2_Total","1_Member"))</Value>
+        </Field>
+        <Field Name="cIsTotal">
+          <Value>=(Fields!ClassificationMemberCode.Value = "Total" or Fields!ClassificationMemberCode.Value = "totport")</Value>
+        </Field>
+        <Field Name="cLanguage">
+          <Value>=Globalization.CultureInfo.GetCultureInfo(Fields!LocaleID.Value).Name</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="StyleSheet">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+					EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+					exec APXUser.pGetStyleSheetInfo
+				</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="StyleSheetXML">
+          <DataField>StyleSheetXML</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+        </Values>
+      </DefaultValue>
+      <Prompt>SessionGuid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="PortfolioBaseID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>180</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PortfolioBaseID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PortfolioBaseIDOrder">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PortfolioBaseIDOrder</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DataHandle">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>B463FC01-46EE-407E-A73D-29A2D6B7458B</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DataHandle</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportingCurrencyCode">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ReportingCurrencyCode</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Reporting Currency</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClassificationID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>-4</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ClassificationID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Classification</DataSetName>
+          <ValueField>ClassificationID</ValueField>
+          <LabelField>ClassificationName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="AnnualizeReturns">
+      <DataType>Boolean</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>False</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ShowIndexes">
+      <DataType>Boolean</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>True</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Display Indexes</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PeriodsArray">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MTD</Value>
+          <Value>QTD</Value>
+          <Value>YTD</Value>
+          <Value>ITD</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Performance Periods</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>ATD</Value>
+            <Label>Day To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>WTD</Value>
+            <Label>Week To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>MTD</Value>
+            <Label>Month To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>QTD</Value>
+            <Label>Quarter To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>YTD</Value>
+            <Label>Year To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L1Y</Value>
+            <Label>Latest 1 Year</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L3Y</Value>
+            <Label>Latest 3 Years</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L5Y</Value>
+            <Label>Latest 5 Years</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>ITD</Value>
+            <Label>Inception To Date</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="LocaleID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>LocaleID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Locale</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ServerURL">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ServerURL</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ServerURL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StyleSheetXML">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>StyleSheet</DataSetName>
+          <ValueField>StyleSheetXML</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Periods">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value>=Join(Parameters!PeriodsArray.Value,",")</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Periods_ANN">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Periods to Annualize</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>
+		Private cHeading1 as Object
+		Private cHeading2 as Object
+		Private cHeading3 as Object
+		Private cCurrency as Object
+		Private cReportDate as Object
+		Private cSettlement as Object
+		Private cFirmLogo as Object
+
+		Protected Overrides Sub OnInit()
+		cHeading1 = nothing
+		cHeading2 = nothing
+		cHeading3 = nothing
+		cCurrency = nothing
+		cReportDate = nothing
+		cSettlement = nothing
+		cFirmLogo = nothing
+		End Sub
+
+		Public Function GetReportHeading1(ReportHeading1 as Object) as String
+		if ReportHeading1 is nothing
+		return cHeading1
+		else
+		cHeading1 = ReportHeading1
+		return cHeading1
+		end if
+		End Function
+
+		Public Function GetReportHeading2(ReportHeading2 as Object) as String
+		if ReportHeading2 is nothing
+		return cHeading2
+		else
+		cHeading2 = ReportHeading2
+		return cHeading2
+		end if
+		End Function
+
+		Public Function GetReportHeading3(ReportHeading3 as Object) as String
+		if ReportHeading3 is nothing
+		return cHeading3
+		else
+		cHeading3 = ReportHeading3
+		return cHeading3
+		end if
+		End Function
+
+		Public Function GetCurrency(Currency as Object) as String
+		if Currency is nothing
+		return cCurrency
+		else
+		cCurrency = Currency
+		return cCurrency
+		end if
+		End Function
+
+		Public Function GetReportDate( ReportDate as Object) as String
+		if ReportDate is nothing
+		return cReportDate
+		else
+		cReportDate = ReportDate
+		return cReportDate
+		end if
+		End Function
+
+		Public Function GetSettlement( Settlement as Object) as String
+		if Settlement is nothing
+		return cSettlement
+		else
+		cSettlement = Settlement
+		return cSettlement
+		end if
+		End Function
+
+		Public Function GetFirmLogo( FirmLogo as Object) as String
+		if FirmLogo is nothing
+		return cFirmLogo
+		else
+		cFirmLogo = FirmLogo
+		return cFirmLogo
+		end if
+		End Function
+
+		Dim StyleSheetHash As System.Collections.Hashtable
+
+		Public Function InitStyleSheet()
+
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		xmlDocument.LoadXml(Report.Parameters!StyleSheetXML.Value)
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("StyleSheetInfo")
+
+		StyleSheetHash = New System.Collections.Hashtable()
+
+		For Each a As System.Xml.XmlAttribute In rootNode.Attributes
+		StyleSheetHash.Add(a.Name, a.Value)
+		Next
+
+		End Function
+
+		Public Function StyleSheetValue(StyleSheetValueName As String) As String
+
+		If (styleSheetHash Is Nothing)
+		InitStyleSheet()
+		End If
+
+		If (StyleSheetHash.ContainsKey(StyleSheetValueName))
+		Return StyleSheetHash(StyleSheetValueName)
+		End If
+
+		Return Nothing
+
+		End Function
+
+		Private ColorCount As Integer = 0
+		Private ColorMapping As New System.Collections.Hashtable()
+		Private Colors() As String = nothing
+
+		Public Function GetColor(ByVal groupingValue As String, ByVal delimitedColors As String) As String
+		' 1. If the mapping already exists, then just return the mapped color.
+		If ColorMapping.ContainsKey(groupingValue) Then Return ColorMapping(groupingValue)
+
+		' 2. Create the ColorPaletteColors() if they do not already exist.
+		If Colors Is Nothing Then Colors = delimitedColors.Split(New Char() {","c}, StringSplitOptions.RemoveEmptyEntries)
+
+		' 3. Add the new color to the mapping.
+		Dim color As String = Colors(ColorCount Mod Colors.Length)
+		ColorCount = ColorCount + 1
+		ColorMapping.Add(groupingValue, color)
+
+		' 4. Return the new color.
+		Return color
+		End Function
+
+		Private Const MaximumGridLines As Integer = 6
+
+		' The AxisValue function gets the Axis minimum, maximum and increment for the TWR/Growth chart. (Reynolds)
+		' whichSeries = 1 will return the TWR axis value, wbichSeries = 2 will return the growth value
+		' whichValue = 0 will return the grid increment, whichValue = -1 will return the min grid line, whichValue = 1 will return the max grid line
+		Public Function AxisValue(ByVal twrMinimum As Double, ByVal twrMaximum As Double, ByVal growthMinimum As Double, ByVal growthMaximum As Double, ByVal growthAmount As Double, ByVal whichSeries As Integer, ByVal whichValue As Integer) As Double
+
+		' 1. Restate the growthMinimum and growthMaximum to be in terms of TWR.
+		If growthAmount &lt;&gt; 0 Then
+		growthMinimum = 100 * (growthMinimum - growthAmount) / growthAmount
+		growthMaximum = 100 * (growthMaximum - growthAmount) / growthAmount
+		End If
+
+		' 2. Determine the overal minimum and maximum.
+		Dim minimum As Double = 100 * Math.Min(0, Math.Min(twrMinimum, growthMinimum))
+		Dim maximum As Double = 100 * Math.Max(0, Math.Max(twrMaximum, growthMaximum))
+		If minimum = 0 And maximum = 0 Then maximum = 100
+
+		' 3. Determine the increment.
+		' iString  iStart iStep
+		'       7       7     1
+		'      77      70     5
+		'     777     770    10
+		'    7777    7700   100
+		'   77777   77000  1000
+		Dim iString As String = Math.Floor(((maximum - minimum) / MaximumGridLines)).ToString()
+		Dim iStart As Object = iString.Substring(0, 1)
+		Dim iStep As Object = "1"
+		Select Case iString.Length
+		Case 1
+		' do nothing
+		Case 2
+		iStart += "0"
+		iStep = "5"
+		Case Else
+		Dim zeroes As String = New String("0"c, iString.Length - 2)
+		iStart = iString.Substring(0, 2) + zeroes
+		iStep += zeroes
+		End Select
+		iStart = Math.Max(1, Integer.Parse(iStart))
+		iStep = Integer.Parse(iStep)
+
+		' 4. Loop through possible increments and find the smallest one for which all of the data fits.
+		Dim increment As Integer
+		For increment = iStart To ((2 * iStart) + iStep) Step iStep
+		' 5. Calculate the spreads and determine if they will fit.
+		Dim minimumSpread As Integer = IIf(minimum &lt; 0, CType(Math.Floor(minimum / increment), Integer), 0)
+		Dim maximumSpread As Integer = IIf(0 &lt; maximum, CType(Math.Ceiling(maximum / increment), Integer), 0)
+		If MaximumGridLines &lt; maximumSpread - minimumSpread Then Continue For
+
+		' 6. OK, you have a good increment, so set AxisValue.
+		AxisValue = increment * 0.01
+		If whichValue &lt; 0 Then
+		AxisValue *= minimumSpread
+		ElseIf 0 &lt; whichValue Then
+		AxisValue *= maximumSpread
+		End If
+
+		' 7. Adjust the growthMinimum and growthMaximum from a TWR basis back to the growthAmount basis.
+		If whichSeries = 2  and growthAmount &lt;&gt; 0 Then
+		AxisValue *= growthAmount * 0.01
+		If whichValue &lt;&gt; 0 Then AxisValue += growthAmount
+		End If
+
+		Exit Function
+		Next increment
+
+		End Function
+
+		' The XAxisValue function gets the X Axis minimum and maximum
+		' whichValue = -1 will return the min grid line, whichValue = 1 will return the max grid line
+		Public Function XAxisValue(ByVal dateMin As Date, ByVal dateMax As Date, ByVal Interval as Integer, ByVal whichValue As Integer) As Date
+
+		' 1. Adjust Interval
+		If IsNothing(Interval) or Interval &lt; 1 Then Interval = 1
+		If Datediff("m",dateMin, dateMax) &lt; Interval Then Interval = Datediff("m",dateMin, dateMax)
+
+		' 2. Find month end of dateMin
+		Dim newdateMin as Date = DateSerial(Year(dateMin),Month(dateMin)+1,1-1)
+
+		' 3. If mid month start date, then get prior month end
+		If dateMin &lt;&gt; newdateMin Then
+		dateMin = DateSerial(Year(dateMin),Month(dateMin),1-1)
+		End If
+
+		' 4. Find the month end of dateMax
+		dateMax = DateSerial(Year(dateMax),Month(dateMax)+1,1-1)
+
+		' 5. Find the number of months between dateMin and dateMax
+		Dim diffMth as Integer = Datediff("m",dateMin, dateMax)
+
+		' 6. Find the modulus
+		Dim modMth as Integer = diffMth mod Interval
+
+		' 7. Add interval or modulus to dateMax
+		If modMth &gt; 0 Then
+		Dim remMth = Interval + modMth
+		dateMax = Dateadd("m",remMth,dateMax)
+		Else If modMth = 0 Then
+		dateMax = Dateadd("m",Interval,dateMax)
+		End If
+
+		' 8. Adjust dateMax to month end
+		dateMax = DateSerial(Year(dateMax),Month(dateMax)+1,1-1)
+
+		' 9. Return whichValue
+		If whichValue &lt; 1 Then
+		XAxisValue = dateMin
+		Else
+		XAxisValue = dateMax
+		End If
+		End Function
+
+		' The XAxisAutoValue function determines whether the Maximum should use the Auto function
+		Public Function XAxisAutoValue(ByVal dateMin As Date, ByVal dateMax As Date, ByVal Interval as Integer) As Boolean
+
+		' 1. Adjust Interval
+		If IsNothing(Interval) or Interval &lt; 1 Then Interval = 1
+		If Datediff("m",dateMin, dateMax) &lt; Interval Then Interval = Datediff("m",dateMin, dateMax)
+
+		' 2. Find month end of dateMin
+		dateMin = DateSerial(Year(dateMin),Month(dateMin)+1,1-1)
+
+		' 3. Find the month end of dateMax
+		dateMax = DateSerial(Year(dateMax),Month(dateMax)+1,1-1)
+
+		' 4. Find the number of months between dateMin and dateMax
+		Dim diffMth as Integer = Datediff("m",dateMin, dateMax)
+
+		' 5. Find the modulus
+		Dim modMth as Integer = diffMth mod Interval
+
+		' 6. Add interval or modulus to dateMax
+		If modMth = 0 Then
+		XAxisAutoValue = 1
+		Else
+		XAxisAutoValue = 0
+		End If
+		End Function
+
+
+		Public Function XAxisInterval(ByVal dateMin As Date, ByVal dateMax As Date, ByVal Interval as Integer) As Integer
+
+		' 1. Adjust Interval
+		If IsNothing(Interval) or Interval &lt; 1 Then Interval = 1
+		If Datediff("m",dateMin, dateMax) &lt; Interval Then Interval = Datediff("m",dateMin, dateMax)
+
+		XAxisInterval = Interval
+		End Function
+
+	</Code>
+  <Language>=Globalization.CultureInfo.GetCultureInfo(Parameters!LocaleID.Value).Name</Language>
+  <CodeModules>
+    <CodeModule>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</CodeModule>
+  </CodeModules>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>ff102de2-3451-480a-b660-fd10be774492</rd:ReportID>
+</Report>

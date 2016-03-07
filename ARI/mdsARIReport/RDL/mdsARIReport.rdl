@@ -1,0 +1,938 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="Textbox93">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>* Performance in local currency.</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox93</rd:DefaultName>
+            <Top>1.61458in</Top>
+            <Height>0.25in</Height>
+            <Width>7.5in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Subreport Name="Subreport1">
+            <ReportName>mdsARISubReport</ReportName>
+            <Parameters>
+              <Parameter Name="SessionGuid">
+                <Value>=Parameters!SessionGuid.Value</Value>
+              </Parameter>
+              <Parameter Name="Portfolios">
+                <Value>=Parameters!Portfolios.Value</Value>
+              </Parameter>
+              <Parameter Name="FromDate">
+                <Value>=Parameters!FromDate.Value</Value>
+              </Parameter>
+              <Parameter Name="ToDate">
+                <Value>=Parameters!ToDate.Value</Value>
+              </Parameter>
+              <Parameter Name="Wrap">
+                <Value>=Parameters!Wrap.Value</Value>
+              </Parameter>
+              <Parameter Name="ReportingCurrencyCode">
+                <Value>=Parameters!ReportingCurrencyCode.Value</Value>
+              </Parameter>
+              <Parameter Name="ClassificationID">
+                <Value>=Parameters!ClassificationID.Value</Value>
+              </Parameter>
+              <Parameter Name="FeeMethod">
+                <Value>=Parameters!FeeMethod.Value</Value>
+              </Parameter>
+              <Parameter Name="AccruePerfFees">
+                <Value>=Parameters!AccruePerfFees.Value</Value>
+              </Parameter>
+              <Parameter Name="AllocatePerfFees">
+                <Value>=Parameters!AllocatePerfFees.Value</Value>
+              </Parameter>
+              <Parameter Name="AnnualizeReturns">
+                <Value>=Parameters!AnnualizeReturns.Value</Value>
+              </Parameter>
+              <Parameter Name="UseIRRCalc">
+                <Value>=Parameters!UseIRRCalc.Value</Value>
+              </Parameter>
+              <Parameter Name="Periods">
+                <Value>=Parameters!Periods.Value</Value>
+              </Parameter>
+              <Parameter Name="LocaleID">
+                <Value>=Parameters!LocaleID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <KeepTogether>true</KeepTogether>
+            <Height>1.55903in</Height>
+            <Width>7.5in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <KeepTogether>true</KeepTogether>
+        <Top>0.01389in</Top>
+        <Height>1.86458in</Height>
+        <Width>7.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>1.87847in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
+  </Body>
+  <Width>7.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.32292in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox94">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="ARI FUNDS PERFORMANCE FOR "+UCase(Format(First(Fields!ThruDate.Value, "PerformanceHistoryPeriod"),"MMMM dd, yyyy"))</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox94</rd:DefaultName>
+          <Height>0.25in</Height>
+          <Width>7.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <BottomBorder>
+              <Style>Solid</Style>
+            </BottomBorder>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.77083in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox95">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ID.Value, "DisclaimerText")</Value>
+                  <Style>
+                    <FontFamily>Tahoma</FontFamily>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox95</rd:DefaultName>
+          <Height>0.25in</Height>
+          <Width>7.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <LeftMargin>0.5in</LeftMargin>
+    <RightMargin>0.5in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>0.5in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>51b38211-f820-4e67-9995-d161fb8cbfb6</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Classification">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetReportingClassification</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationName">
+          <DataField>ClassificationName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationID">
+          <DataField>ClassificationID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Configuration">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+EXEC APXUser.pGetConfiguration</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="AccruedInterestID">
+          <DataField>AccruedInterestID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="AccruePerfFees">
+          <DataField>AccruePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AllocatePerfFees">
+          <DataField>AllocatePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AnnualizeReturns">
+          <DataField>AnnualizeReturns</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BondCostBasisID">
+          <DataField>BondCostBasisID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="FeeMethod">
+          <DataField>FeeMethod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FirmName">
+          <DataField>FirmName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmLogoURL">
+          <DataField>FirmLogoURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MFBasisIncludeReinvest">
+          <DataField>MFBasisIncludeReinvest</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="ReportingCurrencyCode">
+          <DataField>ReportingCurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RequiredDisclaimerID">
+          <DataField>RequiredDisclaimerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrencyFullPrecision">
+          <DataField>ShowCurrencyFullPrecision</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentMBSFace">
+          <DataField>ShowCurrentMBSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ServerURL">
+          <DataField>ServerURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentTIPSFace">
+          <DataField>ShowCurrentTIPSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustryGroup">
+          <DataField>ShowIndustryGroup</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustrySector">
+          <DataField>ShowIndustrySector</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowMultiCurrency">
+          <DataField>ShowMultiCurrency</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowSecuritySymbol">
+          <DataField>ShowSecuritySymbol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowTaxlotsLumped">
+          <DataField>ShowTaxlotsLumped</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="StyleSetID">
+          <DataField>StyleSetID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UseACB">
+          <DataField>UseACB</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="UseSettlementDate">
+          <DataField>UseSettlementDate</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="YieldOptionID">
+          <DataField>YieldOptionID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Currency">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetCurrency</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="CurrencyDisplayName">
+          <DataField>CurrencyDisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="FeeMethod">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetFeeMethod</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="LocaleInfo">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetLocaleInfo</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="LocaleName">
+          <DataField>LocaleName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="PerformanceHistoryPeriod">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Portfolios">
+            <Value>=Parameters!Portfolios.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@FromDate">
+            <Value>=Parameters!FromDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ToDate">
+            <Value>=Parameters!ToDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ClassificationID">
+            <Value>=Parameters!ClassificationID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReportingCurrencyCode">
+            <Value>=Parameters!ReportingCurrencyCode.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@FeeMethod">
+            <Value>=Parameters!FeeMethod.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AccruePerfFees">
+            <Value>=Parameters!AccruePerfFees.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AllocatePerfFees">
+            <Value>=Parameters!AllocatePerfFees.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@UseIRRCalc">
+            <Value>=Parameters!UseIRRCalc.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AnnualizeReturns">
+            <Value>=Parameters!AnnualizeReturns.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUserCustom.pMDSARIReport @SessionGuid, @Portfolios, @FromDate, @ToDate, @ClassificationID, 
+@ReportingCurrencyCode, @FeeMethod, @AccruePerfFees, @AllocatePerfFees, @AnnualizeReturns, @UseIRRCalc, @LocaleID</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationID">
+          <DataField>ClassificationID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberCode">
+          <DataField>ClassificationMemberCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberName">
+          <DataField>ClassificationMemberName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberOrder">
+          <DataField>ClassificationMemberOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DayToDatePeriodFromDate">
+          <DataField>DayToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateTWRIndex">
+          <DataField>DayToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="DayToDateTWR">
+          <DataField>DayToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDatePeriodFromDate">
+          <DataField>InceptionToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateTWR">
+          <DataField>InceptionToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="InceptionToDateTWRIndex">
+          <DataField>InceptionToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearPeriodFromDate">
+          <DataField>Latest1YearPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearTWRIndex">
+          <DataField>Latest1YearTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest1YearTWR">
+          <DataField>Latest1YearTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsPeriodFromDate">
+          <DataField>Latest3MonthsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsPeriodFromDate">
+          <DataField>Latest3YearsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsTWR">
+          <DataField>Latest3MonthsTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3MonthsTWRIndex">
+          <DataField>Latest3MonthsTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsTWR">
+          <DataField>Latest3YearsTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsPeriodFromDate">
+          <DataField>Latest5YearsPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsTWR">
+          <DataField>Latest5YearsTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Latest3YearsTWRIndex">
+          <DataField>Latest3YearsTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDatePeriodFromDate">
+          <DataField>MonthToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDateTWR">
+          <DataField>MonthToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseID">
+          <DataField>PortfolioBaseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Latest5YearsTWRIndex">
+          <DataField>Latest5YearsTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseIDOrder">
+          <DataField>PortfolioBaseIDOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDatePeriodFromDate">
+          <DataField>QuarterToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateTWR">
+          <DataField>QuarterToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MonthToDateTWRIndex">
+          <DataField>MonthToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWR">
+          <DataField>SinceDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="QuarterToDateTWRIndex">
+          <DataField>QuarterToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWRPeriodFromDate">
+          <DataField>SinceDateTWRPeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ThruDate">
+          <DataField>ThruDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDatePeriodFromDate">
+          <DataField>WeekToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SinceDateTWRIndex">
+          <DataField>SinceDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateTWR">
+          <DataField>WeekToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="YearToDatePeriodFromDate">
+          <DataField>YearToDatePeriodFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateTWR">
+          <DataField>YearToDateTWR</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="WeekToDateTWRIndex">
+          <DataField>WeekToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PrefixedPortfolioBaseCode">
+          <DataField>PrefixedPortfolioBaseCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseCode">
+          <DataField>PortfolioBaseCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading1">
+          <DataField>ReportHeading1</DataField>
+          <rd:TypeName>System.Object</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading2">
+          <DataField>ReportHeading2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="YearToDateTWRIndex">
+          <DataField>YearToDateTWRIndex</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading3">
+          <DataField>ReportHeading3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="IndexName">
+          <DataField>IndexName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IndexDescription">
+          <DataField>IndexDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="AnnualizeReturns">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetAnnualizeReturns</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Disclaimer">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetDisclaimer</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="DisclaimerID">
+          <DataField>DisclaimerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DisclaimerName">
+          <DataField>DisclaimerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DisclaimerText">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@Disclaimer">
+            <Value>=Parameters!Disclaimer.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>select APXUser.fGetDisclaimerText(@Disclaimer)</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField />
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+        </Values>
+      </DefaultValue>
+      <Prompt>SessionGuid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Portfolios">
+      <DataType>String</DataType>
+      <Prompt>Portfolio</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FromDate">
+      <DataType>DateTime</DataType>
+      <Prompt>From Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ToDate">
+      <DataType>DateTime</DataType>
+      <Prompt>To Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Wrap">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>true</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Wrap Name</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReportingCurrencyCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ReportingCurrencyCode</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Reporting Currency</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Currency</DataSetName>
+          <ValueField>CurrencyCode</ValueField>
+          <LabelField>CurrencyDisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ClassificationID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>-9</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Classification</Prompt>
+      <Hidden>true</Hidden>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Classification</DataSetName>
+          <ValueField>ClassificationID</ValueField>
+          <LabelField>ClassificationName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="FeeMethod">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>FeeMethod</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Calculate Performance</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>FeeMethod</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="AccruePerfFees">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AccruePerfFees</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Accrue Fees</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AllocatePerfFees">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AllocatePerfFees</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Allocate Fees</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AnnualizeReturns">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AnnualizeReturns</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Annualize Returns</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>AnnualizeReturns</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="UseIRRCalc">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>false</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>IRR Calc</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="PeriodArray">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>MTD</Value>
+          <Value>QTD</Value>
+          <Value>YTD</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Periods</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>ATD</Value>
+            <Label>Day to Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>WTD</Value>
+            <Label>Week To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>MTD</Value>
+            <Label>Month To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L3M</Value>
+            <Label>Latest 3 Months</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>QTD</Value>
+            <Label>Quarter To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>YTD</Value>
+            <Label>Year To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L1Y</Value>
+            <Label>Latest 1 Year</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L3Y</Value>
+            <Label>Latest 3 Years</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>L5Y</Value>
+            <Label>Latest 5 Years</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>ITD</Value>
+            <Label>Inception To Date</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>DTD</Value>
+            <Label>Since Date TWR</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="Periods">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=Join(Parameters!PeriodArray.Value,",")</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Disclaimer">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Disclaimer</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Disclaimer</DataSetName>
+          <ValueField>DisclaimerID</ValueField>
+          <LabelField>DisclaimerName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="LocaleID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>LocaleID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Locale</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>LocaleInfo</DataSetName>
+          <ValueField>LocaleID</ValueField>
+          <LabelField>LocaleName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>7b1437a8-c39d-470a-a0d5-5d1566a6cb15</rd:ReportID>
+</Report>

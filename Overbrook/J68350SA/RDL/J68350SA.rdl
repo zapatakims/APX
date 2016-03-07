@@ -1,0 +1,1031 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Subreport Name="Subreport1">
+        <ReportName>J68350SA_subreport</ReportName>
+        <Parameters>
+          <Parameter Name="SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </Parameter>
+          <Parameter Name="DataHandle">
+            <Value>=First(Fields!DataHandle.Value, "PerformanceHistory")</Value>
+          </Parameter>
+          <Parameter Name="ClassificationMembers">
+            <Value>=join(Parameters!ClassificationMemberID.Value,",")</Value>
+          </Parameter>
+        </Parameters>
+        <Height>3in</Height>
+        <Width>10.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Subreport>
+    </ReportItems>
+    <Height>3in</Height>
+    <Style />
+  </Body>
+  <Width>10.5in</Width>
+  <Page>
+    <PageHeader>
+      <Height>0.8in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Rectangle Name="Rectangle6">
+          <ReportItems>
+            <Image Name="FirmLogoImage">
+              <Source>External</Source>
+              <Value>=Code.GetFirmLogo(First(Fields!FirmLogo.Value, "PerformanceHistory"))</Value>
+              <Sizing>FitProportional</Sizing>
+              <Height>0.7in</Height>
+              <Width>1.25in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Image Name="HeaderVerticalLine">
+              <Source>External</Source>
+              <Value>HeaderVertLine.jpg</Value>
+              <Sizing>FitProportional</Sizing>
+              <Left>1.25556in</Left>
+              <Height>0.746in</Height>
+              <Width>0.1in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Line Name="line2">
+              <Top>0.75in</Top>
+              <Height>0in</Height>
+              <Width>10.5in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Color>=Code.StyleSheetValue("HeaderLineColor")</Color>
+                  <Style>Solid</Style>
+                  <Width>=Code.StyleSheetValue("HeaderLineWidth")</Width>
+                </Border>
+              </Style>
+            </Line>
+            <Textbox Name="ReportTitle">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!ReportTitle.Value</Value>
+                      <Style>
+                        <FontStyle>=Code.StyleSheetValue("ReportTitleStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ReportTitleFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ReportTitleSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ReportTitleWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ReportTitleDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ReportTitleColor")</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.1in</Top>
+              <Left>5.5in</Left>
+              <Height>0.3in</Height>
+              <Width>5in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border />
+                <BackgroundColor>=Code.StyleSheetValue("ReportTitleBackgroundColor")</BackgroundColor>
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="txtReportingCurrency">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetCurrency(First(Fields!CurrencyName.Value, "PerformanceHistory"))</Value>
+                      <Style>
+                        <FontStyle>=Code.StyleSheetValue("ReportDateStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ReportDateFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ReportDateSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ReportDateWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ReportDateDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ReportDateColor")</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.4in</Top>
+              <Left>5.5in</Left>
+              <Height>0.16in</Height>
+              <Width>5in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border />
+                <BackgroundColor>=Code.StyleSheetValue("ReportDateBackgroundColor")</BackgroundColor>
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+            <Textbox Name="txtReportDate">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetReportDate(First(Fields!ThruDate.Value, "PerformanceHistory"))</Value>
+                      <Style>
+                        <FontStyle>=Code.StyleSheetValue("ReportDateStyle")</FontStyle>
+                        <FontFamily>=Code.StyleSheetValue("ReportDateFamily")</FontFamily>
+                        <FontSize>=Code.StyleSheetValue("ReportDateSize")</FontSize>
+                        <FontWeight>=Code.StyleSheetValue("ReportDateWeight")</FontWeight>
+                        <TextDecoration>=Code.StyleSheetValue("ReportDateDecoration")</TextDecoration>
+                        <Color>=Code.StyleSheetValue("ReportDateColor")</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.56in</Top>
+              <Left>5.5in</Left>
+              <Height>0.16in</Height>
+              <Width>5in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border />
+                <BackgroundColor>=Code.StyleSheetValue("ReportDateBackgroundColor")</BackgroundColor>
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingRight>2pt</PaddingRight>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <KeepTogether>true</KeepTogether>
+          <Height>0.8in</Height>
+          <Width>10.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Rectangle>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.3in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="line1">
+          <Top>0.05in</Top>
+          <Height>0in</Height>
+          <Width>10.5in</Width>
+          <Style>
+            <Border>
+              <Color>=Code.StyleSheetValue("FooterLineColor")</Color>
+              <Style>Solid</Style>
+              <Width>=Code.StyleSheetValue("FooterLineWidth")</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Textbox Name="FirmName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!FirmName.Value</Value>
+                  <Style>
+                    <FontStyle>=Code.StyleSheetValue("FirmNameStyle")</FontStyle>
+                    <FontFamily>=Code.StyleSheetValue("FirmNameFamily")</FontFamily>
+                    <FontSize>=Code.StyleSheetValue("FirmNameSize")</FontSize>
+                    <FontWeight>=Code.StyleSheetValue("FirmNameWeight")</FontWeight>
+                    <TextDecoration>=Code.StyleSheetValue("FirmNameDecoration")</TextDecoration>
+                    <Color>=Code.StyleSheetValue("FirmNameColor")</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.1in</Top>
+          <Height>0.2in</Height>
+          <Width>10.5in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border />
+            <BackgroundColor>=Code.StyleSheetValue("FirmNameBackgroundColor")</BackgroundColor>
+            <VerticalAlign>Middle</VerticalAlign>
+            <PaddingLeft>2pt</PaddingLeft>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style />
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.37in</TopMargin>
+    <BottomMargin>0.36in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>e97381e8-b756-4b77-9f63-012346796df1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="StyleSheet">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+				  EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+				  exec APXUser.pGetStyleSheetInfo
+			  </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="StyleSheetXML">
+          <DataField>StyleSheetXML</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="AnnualizeReturns">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetAnnualizeReturns</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="LocaleInfo">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetLocaleInfo</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="LocaleName">
+          <DataField>LocaleName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="Currency">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetCurrency</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="CurrencyDisplayName">
+          <DataField>CurrencyDisplayName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="FeeMethod">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetFeeMethod</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="PriceType">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetPriceType</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="PriceTypeName">
+          <DataField>PriceTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="ShowCurrencyFullPrecision">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>EXEC APXUser.pGetShowCurrencyFullPrecision</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="Configuration">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+				  EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+				  EXEC APXUser.pGetConfiguration
+			  </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="AccruedInterestID">
+          <DataField>AccruedInterestID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="AccruePerfFees">
+          <DataField>AccruePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AllocatePerfFees">
+          <DataField>AllocatePerfFees</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="AnnualizeReturns">
+          <DataField>AnnualizeReturns</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BondCostBasisID">
+          <DataField>BondCostBasisID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="FeeMethod">
+          <DataField>FeeMethod</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FirmLogoURL">
+          <DataField>FirmLogoURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FirmName">
+          <DataField>FirmName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MFBasisIncludeReinvest">
+          <DataField>MFBasisIncludeReinvest</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PageSize">
+          <DataField>PageSize</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PriceTypeID">
+          <DataField>PriceTypeID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+        <Field Name="ReportingCurrencyCode">
+          <DataField>ReportingCurrencyCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RequiredDisclaimerID">
+          <DataField>RequiredDisclaimerID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ServerURL">
+          <DataField>ServerURL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrencyFullPrecision">
+          <DataField>ShowCurrencyFullPrecision</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentMBSFace">
+          <DataField>ShowCurrentMBSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowCurrentTIPSFace">
+          <DataField>ShowCurrentTIPSFace</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustryGroup">
+          <DataField>ShowIndustryGroup</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowIndustrySector">
+          <DataField>ShowIndustrySector</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowMultiCurrency">
+          <DataField>ShowMultiCurrency</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ShowSecuritySymbol">
+          <DataField>ShowSecuritySymbol</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ShowTaxLotsLumped">
+          <DataField>ShowTaxlotsLumped</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="StyleSetID">
+          <DataField>StyleSetID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UseACB">
+          <DataField>UseACB</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="UseSettlementDate">
+          <DataField>UseSettlementDate</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="YieldOptionID">
+          <DataField>YieldOptionID</DataField>
+          <rd:TypeName>System.Int16</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="Classification">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <CommandText>exec APXUser.pGetAllocationClassification</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationID">
+          <DataField>ClassificationID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationName">
+          <DataField>ClassificationName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="PerformanceHistory">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Portfolios">
+            <Value>=Parameters!Portfolios.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ToDate">
+            <Value>=Parameters!ToDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ClassificationID">
+            <Value>=Parameters!ClassificationID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@ReportingCurrencyCode">
+            <Value>=Parameters!ReportingCurrencyCode.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@FeeMethod">
+            <Value>=Parameters!FeeMethod.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AnnualizeReturns">
+            <Value>=Parameters!AnnualizeReturns.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AccruePerfFees">
+            <Value>=Parameters!AccruePerfFees.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AllocatePerfFees">
+            <Value>=Parameters!AllocatePerfFees.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUserCustom.pJ68350SA @SessionGuid,
+	@Portfolios,
+	@ToDate,
+	@ClassificationID,
+	@ReportingCurrencyCode,
+	@FeeMethod,
+	@AnnualizeReturns,
+	@AccruePerfFees,
+	@AllocatePerfFees,
+	@LocaleID</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="DataHandle">
+          <DataField>DataHandle</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="FirmLogo">
+          <DataField>FirmLogo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ThruDate">
+          <DataField>ThruDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="CurrencyName">
+          <DataField>CurrencyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="ClassificationMemberID">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ClassificationID">
+            <Value>=Parameters!ClassificationID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUser.pGetClassificationMemberID @ClassificationID</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ClassificationMemberID">
+          <DataField>ClassificationMemberID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberCode">
+          <DataField>ClassificationMemberCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClassificationMemberName">
+          <DataField>ClassificationMemberName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Session Guid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="Portfolios">
+      <DataType>String</DataType>
+      <Prompt>Portfolios</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ToDate">
+      <DataType>DateTime</DataType>
+      <Prompt>To Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ClassificationID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>-4</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Classification ID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Classification</DataSetName>
+          <ValueField>ClassificationID</ValueField>
+          <LabelField>ClassificationName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ClassificationMemberID">
+      <DataType>String</DataType>
+      <Prompt>ClassificationMemberID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>ClassificationMemberID</DataSetName>
+          <ValueField>ClassificationMemberCode</ValueField>
+          <LabelField>ClassificationMemberName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="ReportingCurrencyCode">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>ReportingCurrencyCode</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Reporting Currency Code</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Currency</DataSetName>
+          <ValueField>CurrencyCode</ValueField>
+          <LabelField>CurrencyDisplayName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="FeeMethod">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>FeeMethod</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Fee Method</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>FeeMethod</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="AnnualizeReturns">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AnnualizeReturns</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Annualize Returns</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>AnnualizeReturns</DataSetName>
+          <ValueField>Value</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="AccruePerfFees">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AccruePerfFees</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Accrue Perf Fees</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AllocatePerfFees">
+      <DataType>Boolean</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>AllocatePerfFees</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Allocate Perf Fees</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FirmName">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>FirmName</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Overview</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report Title</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LocaleID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Configuration</DataSetName>
+          <ValueField>LocaleID</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Locale ID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>LocaleInfo</DataSetName>
+          <ValueField>LocaleID</ValueField>
+          <LabelField>LocaleName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="StyleSheetXML">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>StyleSheet</DataSetName>
+          <ValueField>StyleSheetXML</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ClassificationMembers">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=join(Parameters!ClassificationMemberID.Value,",")</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <CustomProperties>
+    <CustomProperty>
+      <Name>CodeGenCollation</Name>
+      <Value>true</Value>
+    </CustomProperty>
+    <CustomProperty>
+      <Name>CodeGenPageSize</Name>
+      <Value>true</Value>
+    </CustomProperty>
+  </CustomProperties>
+  <Code>
+		Private cHeading1 as Object
+		Private cHeading2 as Object
+		Private cHeading3 as Object
+		Private cCurrency as Object
+		Private cReportDate as Object
+		Private cSettlement as Object
+		Private cFirmLogo as Object
+
+		Protected Overrides Sub OnInit()
+		cHeading1 = nothing
+		cHeading2 = nothing
+		cHeading3 = nothing
+		cCurrency = nothing
+		cReportDate = nothing
+		cSettlement = nothing
+		cFirmLogo = nothing
+		End Sub
+
+		Public Function GetReportHeading1(ReportHeading1 as Object) as String
+		if ReportHeading1 is nothing
+		return cHeading1
+		else
+		cHeading1 = ReportHeading1
+		return cHeading1
+		end if
+		End Function
+
+		Public Function GetReportHeading2(ReportHeading2 as Object) as String
+		if ReportHeading2 is nothing
+		return cHeading2
+		else
+		cHeading2 = ReportHeading2
+		return cHeading2
+		end if
+		End Function
+
+		Public Function GetReportHeading3(ReportHeading3 as Object) as String
+		if ReportHeading3 is nothing
+		return cHeading3
+		else
+		cHeading3 = ReportHeading3
+		return cHeading3
+		end if
+		End Function
+
+		Public Function GetCurrency(Currency as Object) as String
+		if Currency is nothing
+		return cCurrency
+		else
+		cCurrency = Currency
+		return cCurrency
+		end if
+		End Function
+
+		Public Function GetReportDate( ReportDate as Object) as String
+		if ReportDate is nothing
+		return cReportDate
+		else
+		cReportDate = ReportDate
+		return cReportDate
+		end if
+		End Function
+
+		Public Function GetSettlement( Settlement as Object) as String
+		if Settlement is nothing
+		return cSettlement
+		else
+		cSettlement = Settlement
+		return cSettlement
+		end if
+		End Function
+
+		Public Function GetFirmLogo( FirmLogo as Object) as String
+		if FirmLogo is nothing
+		return cFirmLogo
+		else
+		cFirmLogo = FirmLogo
+		return cFirmLogo
+		end if
+		End Function
+
+		Dim StyleSheetHash As System.Collections.Hashtable
+
+		Public Function InitStyleSheet()
+
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		xmlDocument.LoadXml(Report.Parameters!StyleSheetXML.Value)
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("StyleSheetInfo")
+
+		StyleSheetHash = New System.Collections.Hashtable()
+
+		For Each a As System.Xml.XmlAttribute In rootNode.Attributes
+		StyleSheetHash.Add(a.Name, a.Value)
+		Next
+
+		End Function
+
+		Public Function StyleSheetValue(StyleSheetValueName As String) As String
+
+		If (styleSheetHash Is Nothing)
+		InitStyleSheet()
+		End If
+
+		If (StyleSheetHash.ContainsKey(StyleSheetValueName))
+		Return StyleSheetHash(StyleSheetValueName)
+		End If
+
+		Return Nothing
+
+		End Function
+
+		Dim TranslationHash As System.Collections.Hashtable
+		Dim HaveNonShariahLang As Boolean = False
+		Dim ShariahLocale As Integer = 1000000
+
+		Public Function InitTranslationHash()
+		TranslationHash = New System.Collections.Hashtable()
+		LoadTranslationHash(1)
+		LoadTranslationHash(2)
+		LoadTranslationHash(3)
+		LoadTranslationHash(4)
+		LoadTranslationHash(5)
+		LoadTranslationHash(6)
+		LoadTranslationHash(7)
+		End Function
+
+		Public Function LoadTranslationHash(Chunk as Integer)
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		If Chunk = 1 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations1.Value)
+		Else If Chunk = 2 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations2.Value)
+		Else If Chunk = 3 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations3.Value)
+		Else If Chunk = 4 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations4.Value)
+		Else If Chunk = 5 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations5.Value)
+		Else If Chunk = 6 Then
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations6.Value)
+		Else
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations7.Value)
+		End If
+
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("Translation")
+
+		For Each elt As System.Xml.XmlElement In rootNode.SelectNodes("row")
+		Dim key As String = elt.Attributes("T").Value
+		Dim APXLocaleID As String = elt.Attributes("L").Value
+		Dim context As String = elt.Attributes("C").Value
+		Dim translation As String = elt.Attributes("V").Value
+
+		If APXLocaleID &lt; = ShariahLocale
+		HaveNonShariahLang  = True
+		End If
+		If (Not String.IsNullOrEmpty(APXLocaleID))
+		key = key + "~~" + APXLocaleID
+		End If
+
+
+		If (Not String.IsNullOrEmpty(context))
+		key = key + "~~" + context
+		End If
+
+		TranslationHash.Add(key, translation)
+		Next
+		End Function
+
+		Public Function Translation(Key As String, APXLocaleID as String, Optional Context As String = Nothing) As String
+
+		If (TranslationHash Is Nothing)
+		InitTranslationHash()
+		End If
+
+		If (APXLocaleID &lt; ShariahLocale and Not HaveNonShariahLang)
+		Return Key
+		End If
+		If (Not String.IsNullOrEmpty(Context))
+		Dim contextKey As String = Key + "~~" + APXLocaleID + "~~" + Context
+
+		If (TranslationHash.ContainsKey(contextKey))
+		Return TranslationHash(contextKey)
+		End If
+		End If
+
+		Dim APXLocaleIDKey As String = Key + "~~" + APXLocaleID
+
+		If (TranslationHash.ContainsKey(APXLocaleIDKey))
+		Return TranslationHash(APXLocaleIDKey )
+		End If
+
+		If (TranslationHash.ContainsKey(Key))
+		Return TranslationHash(Key)
+		End If
+
+		Return Key
+
+		End Function
+
+	</Code>
+  <Language>en-US</Language>
+  <CodeModules>
+    <CodeModule>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</CodeModule>
+  </CodeModules>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>5221c04a-9aed-4bc8-b885-dd9e80bbb783</rd:ReportID>
+</Report>

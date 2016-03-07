@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>10.5in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.15in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>The policy benchmark is comprised of:</Value>
+                              <Style>
+                                <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                                <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                                <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                                <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                                <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                                <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.15in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="DisclaimerText">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=replace(Fields!DisclaimerText.Value,"&amp;amp;","&amp;")</Value>
+                              <Style>
+                                <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
+                                <FontFamily>=Code.StyleSheetValue("DetailFamily")</FontFamily>
+                                <FontSize>=Code.StyleSheetValue("DetailSize")</FontSize>
+                                <FontWeight>=Code.StyleSheetValue("DetailWeight")</FontWeight>
+                                <TextDecoration>=Code.StyleSheetValue("DetailDecoration")</TextDecoration>
+                                <Color>=Code.StyleSheetValue("DetailColor")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <LeftIndent>10pt</LeftIndent>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>DisclaimerText</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=Code.StyleSheetValue("DetailBackgroundColor")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details" />
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!PeriodID.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Disclaimer</DataSetName>
+        <Height>0.3in</Height>
+        <Width>10.5in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.3in</Height>
+    <Style />
+  </Body>
+  <Width>10.5in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>c7ae0acf-26cd-486e-bb2a-b95e01ff958f</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Disclaimer">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PortfolioBaseID">
+            <Value>=Parameters!PortfolioBaseID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@Date">
+            <Value>=Parameters!Date.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUserCustom.pAA24660SA @SessionGuid, @PortfolioBaseID, @Date</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="PeriodID">
+          <DataField>PeriodID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DisclaimerText">
+          <DataField>DisclaimerText</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="StyleSheet">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>
+				  EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+				  exec APXUser.pGetStyleSheetInfo
+			  </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="StyleSheetXML">
+          <DataField>StyleSheetXML</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="ReportTranslations">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ContextTagXML">
+            <Value>=Parameters!ContextTagXML.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUser.pGetReportTranslations null, @ContextTagXML</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ReportTranslations">
+          <DataField>ReportTranslations</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Session Guid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="PortfolioBaseID">
+      <DataType>Integer</DataType>
+      <Prompt>Portfolio Base ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Date">
+      <DataType>DateTime</DataType>
+      <Prompt>Date</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="StyleSheetXML">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>StyleSheet</DataSetName>
+          <ValueField>StyleSheetXML</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ContextTagXML">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>="&lt;Translation&gt;&lt;Context&gt;ReportTitle&lt;/Context&gt;&lt;Tag&gt;Disclaimer &amp;amp; Terms&lt;/Tag&gt;&lt;/Translation&gt;"</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ReportTranslations">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>ReportTranslations</DataSetName>
+          <ValueField>ReportTranslations</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>
+		Private cReportDate as Object
+		Private cFirmLogo as Object
+		Private cReportTitle as Object
+
+		Protected Overrides Sub OnInit()
+		cReportDate = nothing
+		cFirmLogo = nothing
+		cReportTitle = nothing
+		End Sub
+
+		Public Function GetReportDate( ReportDate as Object) as String
+		if ReportDate is nothing
+		return cReportDate
+		else
+		cReportDate = ReportDate
+		return cReportDate
+		end if
+		End Function
+
+		Public Function GetFirmLogo( FirmLogo as Object) as String
+		if FirmLogo is nothing
+		return cFirmLogo
+		else
+		cFirmLogo = FirmLogo
+		return cFirmLogo
+		end if
+		End Function
+
+		Public Function GetReportTitle( ReportTitle as Object) as String
+		if ReportTitle is nothing
+		return cReportTitle
+		else
+		cReportTitle = ReportTitle
+		return cReportTitle
+		end if
+		End Function
+
+		Dim StyleSheetHash As System.Collections.Hashtable
+
+		Public Function InitStyleSheet()
+
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		xmlDocument.LoadXml(Report.Parameters!StyleSheetXML.Value)
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("StyleSheetInfo")
+
+		StyleSheetHash = New System.Collections.Hashtable()
+
+		For Each a As System.Xml.XmlAttribute In rootNode.Attributes
+		StyleSheetHash.Add(a.Name, a.Value)
+		Next
+
+		End Function
+
+		Public Function StyleSheetValue(StyleSheetValueName As String) As String
+
+		If (styleSheetHash Is Nothing)
+		InitStyleSheet()
+		End If
+
+		If (StyleSheetHash.ContainsKey(StyleSheetValueName))
+		Return StyleSheetHash(StyleSheetValueName)
+		End If
+
+		Return Nothing
+
+		End Function
+		Dim TranslationHash As System.Collections.Hashtable
+		Dim HaveNonShariahLang As Boolean = False
+		Dim ShariahLocale As Integer = 1000000
+
+		Public Function InitTranslationHash()
+
+		Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+		xmlDocument.LoadXml(Report.Parameters!ReportTranslations.Value)
+		Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("Translation")
+
+		TranslationHash = New System.Collections.Hashtable()
+
+		For Each elt As System.Xml.XmlElement In rootNode.SelectNodes("row")
+		Dim key As String = elt.Attributes("T").Value
+		Dim APXLocaleID As String = elt.Attributes("L").Value
+		Dim context As String = elt.Attributes("C").Value
+		Dim translation As String = elt.Attributes("V").Value
+
+		If APXLocaleID &lt; = ShariahLocale
+		HaveNonShariahLang  = True
+		End If
+		If (Not String.IsNullOrEmpty(APXLocaleID))
+		key = key + "~~" + APXLocaleID
+		End If
+
+
+		If (Not String.IsNullOrEmpty(context))
+		key = key + "~~" + context
+		End If
+
+		TranslationHash.Add(key, translation)
+		Next
+
+		End Function
+
+		Public Function Translation(Key As String, APXLocaleID as String, Optional Context As String = Nothing) As String
+
+		If (TranslationHash Is Nothing)
+		InitTranslationHash()
+		End If
+
+		If (APXLocaleID &lt; ShariahLocale and Not HaveNonShariahLang)
+		Return Key
+		End If
+		If (Not String.IsNullOrEmpty(Context))
+		Dim contextKey As String = Key + "~~" + APXLocaleID + "~~" + Context
+
+		If (TranslationHash.ContainsKey(contextKey))
+		Return TranslationHash(contextKey)
+		End If
+		End If
+
+		Dim APXLocaleIDKey As String = Key + "~~" + APXLocaleID
+
+		If (TranslationHash.ContainsKey(APXLocaleIDKey))
+		Return TranslationHash(APXLocaleIDKey )
+		End If
+
+		If (TranslationHash.ContainsKey(Key))
+		Return TranslationHash(Key)
+		End If
+
+		Return Key
+
+		End Function
+
+	</Code>
+  <Language>en-US</Language>
+  <CodeModules>
+    <CodeModule>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</CodeModule>
+  </CodeModules>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>9fbd5d30-c379-4037-8f42-160629cfeca5</rd:ReportID>
+</Report>

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>3.9in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="AccountHeader">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Code.Translation(iif(COUNTDISTINCT(Fields!PortfolioBaseIDOrder.Value,"Portfolios") &gt; 1, "Accounts","Account"),Max(Fields!LocaleID.Value),"Header")</Value>
+                              <Style>
+                                <FontStyle>=Code.StyleSheetValue("CoverPageHeaderStyle")</FontStyle>
+                                <FontFamily>=Code.StyleSheetValue("CoverPageHeaderFamily")</FontFamily>
+                                <FontSize>=Code.StyleSheetValue("CoverPageHeaderSize")</FontSize>
+                                <FontWeight>=Code.StyleSheetValue("CoverPageHeaderWeight")</FontWeight>
+                                <TextDecoration>=Code.StyleSheetValue("CoverPageHeaderDecoration")</TextDecoration>
+                                <Color>=Code.StyleSheetValue("CoverPageHeaderColor")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <DataElementOutput>NoOutput</DataElementOutput>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=Code.StyleSheetValue("CoverPageHeaderBackgroundColor")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.1875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ReportHeading1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ReportHeading1.Value</Value>
+                              <Style>
+                                <FontStyle>=Code.StyleSheetValue("PortfolioNameStyle")</FontStyle>
+                                <FontFamily>=Code.StyleSheetValue("PortfolioNameFamily")</FontFamily>
+                                <FontSize>=Code.StyleSheetValue("PortfolioNameSize")</FontSize>
+                                <FontWeight>=Code.StyleSheetValue("PortfolioNameWeight")</FontWeight>
+                                <TextDecoration>=Code.StyleSheetValue("PortfolioNameDecoration")</TextDecoration>
+                                <Color>=Code.StyleSheetValue("PortfolioNameColor")</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ReportHeading1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=Code.StyleSheetValue("PortfolioNameBackgroundColor")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.15in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox13">
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Portfolio">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!PortfolioBaseIDOrder.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!PortfolioBaseIDOrder.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details" />
+                  <TablixMembers>
+                    <TablixMember />
+                    <TablixMember />
+                  </TablixMembers>
+                </TablixMember>
+              </TablixMembers>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Portfolios</DataSetName>
+        <Height>0.5875in</Height>
+        <Width>3.9in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <FontStyle>=Code.StyleSheetValue("PortfolioNameStyle")</FontStyle>
+          <FontFamily>=Code.StyleSheetValue("PortfolioNameFamily")</FontFamily>
+          <FontSize>=Code.StyleSheetValue("PortfolioNameSize")</FontSize>
+          <FontWeight>=Code.StyleSheetValue("PortfolioNameWeight")</FontWeight>
+          <TextDecoration>=Code.StyleSheetValue("PortfolioNameDecoration")</TextDecoration>
+          <Color>=Code.StyleSheetValue("PortfolioNameColor")</Color>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>0.9625in</Height>
+    <Style />
+  </Body>
+  <Width>3.9in</Width>
+  <Page>
+    <PageFooter>
+      <Height>0.01042in</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style />
+    </PageFooter>
+    <PageHeight>8.5in</PageHeight>
+    <PageWidth>11in</PageWidth>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <LeftMargin>0.25in</LeftMargin>
+    <RightMargin>0.25in</RightMargin>
+    <TopMargin>0.37in</TopMargin>
+    <BottomMargin>0.36in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="APXFirm">
+      <DataSourceReference>APXFirm</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>08d2000a-cbb1-468d-964e-f7f03e99440e</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Portfolios">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PortfolioBaseID">
+            <Value>=Parameters!PortfolioBaseID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@PortfolioBaseIDOrder">
+            <Value>=Parameters!PortfolioBaseIDOrder.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@DataHandle">
+            <Value>=Parameters!DataHandle.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>EXEC APXUser.pSessionInfoSetGuid @SessionGuid = @SessionGuid
+EXEC APXSSRS.pReportCoverPageDataHandle
+  @SessionGuid = @SessionGuid,
+  @PortfolioBaseID = @PortfolioBaseID,
+  @PortfolioBaseIDOrder = @PortfolioBaseIDOrder,
+  @DataHandle = @DataHandle,
+  @LocaleID = @LocaleID</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="LocaleID">
+          <DataField>LocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="LegacyLocaleID">
+          <DataField>LegacyLocaleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseID">
+          <DataField>PortfolioBaseID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioBaseIDOrder">
+          <DataField>PortfolioBaseIDOrder</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PrefixedPortfolioBaseCode">
+          <DataField>PrefixedPortfolioBaseCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportDate">
+          <DataField>ReportDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading1">
+          <DataField>ReportHeading1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading2">
+          <DataField>ReportHeading2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReportHeading3">
+          <DataField>ReportHeading3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="cLanguage">
+          <Value>=Globalization.CultureInfo.GetCultureInfo(Fields!LegacyLocaleID.Value).Name</Value>
+        </Field>
+        <Field Name="ReportHeading2IsVisible">
+          <Value>=iif(isnothing(Fields!ReportHeading2.Value),0,1)</Value>
+        </Field>
+        <Field Name="ReportHeading3IsVisible">
+          <Value>=iif(isnothing(Fields!ReportHeading3.Value),0,1)</Value>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="StyleSheet">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@SessionGuid">
+            <Value>=Parameters!SessionGuid.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>EXEC APXUser.pSessionInfoSetGuid @SessionGuid=@SessionGuid
+exec APXUser.pGetStyleSheetInfo</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="StyleSheetXML">
+          <DataField>StyleSheetXML</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Collation>Latin1_General</Collation>
+    </DataSet>
+    <DataSet Name="ReportTranslations">
+      <Query>
+        <DataSourceName>APXFirm</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ContextTagXML">
+            <Value>=Parameters!ContextTagXML.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocaleID">
+            <Value>=Parameters!LocaleID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec APXUser.pGetReportTranslations @LocaleID, @ContextTagXML</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="ReportTranslations">
+          <DataField>ReportTranslations</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="SessionGuid">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <Values>
+          <Value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+        </Values>
+      </DefaultValue>
+      <Prompt>SessionGuid</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="PortfolioBaseID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>PortfolioBaseID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PortfolioBaseIDOrder">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>PortfolioBaseIDOrder</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DataHandle">
+      <DataType>String</DataType>
+      <Prompt>DataHandle</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LocaleID">
+      <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Locale</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ContextTagXML">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>="&lt;Translation&gt;&lt;Context&gt;Header&lt;/Context&gt;&lt;Tag&gt;Accounts&lt;/Tag&gt;&lt;/Translation&gt;
+&lt;Translation&gt;&lt;Context&gt;Header&lt;/Context&gt;&lt;Tag&gt;Account&lt;/Tag&gt;&lt;/Translation&gt;"</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ReportTranslations">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>ReportTranslations</DataSetName>
+          <ValueField>ReportTranslations</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="StyleSheetXML">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>StyleSheet</DataSetName>
+          <ValueField>StyleSheetXML</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="ServerURL">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ServerURL</Prompt>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <CustomProperties>
+    <CustomProperty>
+      <Name>CodeGenCollation</Name>
+      <Value>true</Value>
+    </CustomProperty>
+  </CustomProperties>
+  <Code>Dim StyleSheetHash As System.Collections.Hashtable
+
+Public Function InitStyleSheet()
+
+    Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+    xmlDocument.LoadXml(Report.Parameters!StyleSheetXML.Value)
+    Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("StyleSheetInfo")
+    
+    StyleSheetHash = New System.Collections.Hashtable()
+    
+    For Each a As System.Xml.XmlAttribute In rootNode.Attributes
+      StyleSheetHash.Add(a.Name, a.Value)
+    Next
+    
+End Function
+
+Public Function StyleSheetValue(StyleSheetValueName As String) As String
+
+    If (styleSheetHash Is Nothing)
+      InitStyleSheet()
+    End If
+    
+    If (StyleSheetHash.ContainsKey(StyleSheetValueName))
+      Return StyleSheetHash(StyleSheetValueName)
+    End If
+    
+    Return Nothing
+
+End Function
+
+  Dim TranslationHash As System.Collections.Hashtable
+  Dim HaveNonShariahLang As Boolean = False
+  Dim ShariahLocale As Integer = 1000000
+  Dim LocaleLoaded As Integer
+
+  Public Function InitTranslationHash()
+  
+      Dim xmlDocument As System.Xml.XmlDocument = New System.Xml.XmlDocument()
+      xmlDocument.LoadXml(Report.Parameters!ReportTranslations.Value)
+      Dim rootNode As System.Xml.XmlElement = xmlDocument.SelectSingleNode("Translation")
+      
+      TranslationHash = New System.Collections.Hashtable()
+      
+      For Each elt As System.Xml.XmlElement In rootNode.SelectNodes("row")
+        Dim key As String = elt.Attributes("T").Value
+        Dim APXLocaleID As String = elt.Attributes("L").Value
+        Dim context As String = elt.Attributes("C").Value
+        Dim translation As String = elt.Attributes("V").Value
+
+       If APXLocaleID &lt; = ShariahLocale
+               HaveNonShariahLang  = True
+       End If  
+        If (Not String.IsNullOrEmpty(APXLocaleID))
+  		key = key + "~~" + APXLocaleID 
+        End If
+  
+  	  
+  	  If (Not String.IsNullOrEmpty(context))
+  		key = key + "~~" + context
+        End If
+  	  
+        TranslationHash.Add(key, translation)
+      Next
+      
+  End Function
+  
+  Public Function Translation(Key As String, APXLocaleID as String, Optional Context As String = Nothing) As String
+  
+      If (TranslationHash Is Nothing)
+        InitTranslationHash()
+        LocaleLoaded  = APXLocaleID
+      End If
+
+      If (APXLocaleID &lt;&gt; LocaleLoaded)
+        InitTranslationHash()
+        LocaleLoaded  = APXLocaleID
+      End If
+
+      If (APXLocaleID &lt; ShariahLocale and Not HaveNonShariahLang)
+        Return Key
+      End If  	
+  	If (Not String.IsNullOrEmpty(Context))
+  		Dim contextKey As String = Key + "~~" + APXLocaleID + "~~" + Context
+  		
+  		If (TranslationHash.ContainsKey(contextKey))
+  			Return TranslationHash(contextKey)
+  		End If
+  	End If
+      
+      Dim APXLocaleIDKey As String = Key + "~~" + APXLocaleID
+  
+      If (TranslationHash.ContainsKey(APXLocaleIDKey))
+        Return TranslationHash(APXLocaleIDKey )
+      End If
+  
+      If (TranslationHash.ContainsKey(Key))
+        Return TranslationHash(Key)
+      End If
+      
+      Return Key
+  
+  End Function
+</Code>
+  <CodeModules>
+    <CodeModule>System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</CodeModule>
+  </CodeModules>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>afee08b0-2540-4991-b3d1-3f7cc180cdde</rd:ReportID>
+</Report>
