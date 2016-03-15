@@ -1,8 +1,36 @@
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[APXUserCustom].[pD876636SA_PerformanceChart]') AND type in (N'P'))
+USE [APXFirm]
+GO
+
+/****** Object:  StoredProcedure [APXUserCustom].[pD876636SA_PerformanceChart]    Script Date: 01/04/2016 11:41:53 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[APXUserCustom].[pD876636SA_PerformanceChart]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [APXUserCustom].[pD876636SA_PerformanceChart]
 GO
 
-create procedure [APXUserCustom].[pD876636SA_PerformanceChart]
+USE [APXFirm]
+GO
+
+/****** Object:  StoredProcedure [APXUserCustom].[pD876636SA_PerformanceChart]    Script Date: 01/04/2016 11:41:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/*
+EXEC [APXUserCustom].[pD876636SA_PerformanceChart]
+	-- Required Parameters
+	@SessionGuid = null,
+	@PortfolioBaseID = 14547,
+	@PortfolioBaseIDOrder = 1,
+	@DataHandle = 'DB1D2601-9471-4CD7-A568-0ACF57704E49',
+	-- Optional parameters for sqlrep proc
+	@ReportingCurrencyCode = 'ca', -- Use Settings
+	@LocaleID  = null, 					-- Use Portfolio Settings
+	-- Other optional parameters
+	@DataHandleName = 'PerformanceHistory'
+*/
+
+CREATE procedure [APXUserCustom].[pD876636SA_PerformanceChart]
 	-- Required Parameters
 	@SessionGuid nvarchar(48),
 	@PortfolioBaseID int,
@@ -41,6 +69,25 @@ declare @performanceHistory table
             PeriodFromDate datetime,
             PeriodThruDate datetime
 )
+declare @Results table (
+	ClassificationMemberID int,
+	ClassificationMemberCode nvarchar(max),
+	ClassificationMemberName nvarchar(max),
+	ClassificationMemberOrder int,
+	CumulativeTWR float,
+	CurrencySymbol nvarchar(max),
+	FormatReportingCurrency nvarchar(max),
+	FromDate datetime,
+	InceptionDate datetime,
+	IsIndex int,
+	LegacyLocaleID int,
+	LocaleID int,
+	PeriodThruDate datetime,
+	PrefixedPortfolioBaseCode nvarchar(max),
+	PortfolioBaseIDOrder int,
+	TWR float,
+	MaxCumulativeTWR float
+)
 insert into @performanceHistory
 select 
 		PortfolioBaseId,
@@ -60,6 +107,7 @@ from
       APXUser.fPerformanceHistory(@ReportData)
 declare @MinThruDate datetime = (select MIN(PeriodThruDate) from @performanceHistory)
 -- Select the columns for the report.
+INSERT INTO @Results
 select top 1 
 	ph.ClassificationMemberID,
 	ph.ClassificationMemberCode,
@@ -81,7 +129,8 @@ select top 1
 	[PeriodThruDate] = ph.FromDate,
     p.PrefixedPortfolioBaseCode,
 	ph.PortfolioBaseIDOrder,
-	[TWR] = 0
+	[TWR] = 0,
+	NULL
 from @performanceHistory ph
 join APXSSRS.fPortfolioBase(@LocaleID, @ReportingCurrencyCode, 0) p on
 	p.PortfolioBaseID = ph.PortfolioBaseID
@@ -112,7 +161,8 @@ select
 	ph.PeriodThruDate,
     p.PrefixedPortfolioBaseCode,
 	ph.PortfolioBaseIDOrder,
-	ph.TWR
+	ph.TWR,
+	NULL
 -- 4a) Select the result set.
 from (
 	-- This query creates a beginning 'dummy zero' record at the minimum of PeriodThruDate.
@@ -159,6 +209,11 @@ where @ShowIndexes = 1 or ph.IsIndex = 0  and
 	ph.PortfolioBaseId = @PortfolioBaseID and
 	ph.PortfolioBaseIDOrder = @PortfolioBaseIDOrder
 order by PortfolioBaseIDOrder, ClassificationMemberOrder, IsIndex, PeriodThruDate
+
+UPDATE @Results
+SET MaxCumulativeTWR = (SELECT Max(CumulativeTWR) FROM @Results)
+
+SELECT * FROM @Results
 end
 
 GO

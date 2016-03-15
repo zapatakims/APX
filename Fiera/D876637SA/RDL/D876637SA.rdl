@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.75in</Width>
+              <Width>0.48958in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.75in</Width>
+              <Width>1.61458in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.75in</Width>
@@ -24,10 +24,10 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.75in</Width>
+              <Width>0.41667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.72917in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -42,7 +42,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Variables!Heading1.Value</Value>
+                              <Value>=Fields!ReportHeading1.Value</Value>
                               <Style>
                                 <Color>White</Color>
                               </Style>
@@ -226,7 +226,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>6.64917in</Height>
+              <Height>6in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -271,10 +271,18 @@
                             <Parameter Name="PeriodString">
                               <Value>=Parameters!PeriodString.Value</Value>
                             </Parameter>
+                            <Parameter Name="Date">
+                              <Value>=Parameters!Date.Value</Value>
+                            </Parameter>
+                            <Parameter Name="AnnualizeReturns">
+                              <Value>=Parameters!AnnualizeReturns.Value</Value>
+                            </Parameter>
+                            <Parameter Name="FeeMethod">
+                              <Value>=Parameters!FeeMethod.Value</Value>
+                            </Parameter>
                           </Parameters>
                           <KeepTogether>true</KeepTogether>
-                          <Top>0.01042in</Top>
-                          <Height>6.63875in</Height>
+                          <Height>6in</Height>
                           <Width>10.5in</Width>
                           <Style>
                             <Border>
@@ -371,7 +379,8 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
         </TablixRowHierarchy>
         <NoRowsMessage>No Portfolios To Display</NoRowsMessage>
         <DataSetName>PerformanceOverview</DataSetName>
-        <Height>6.68042in</Height>
+        <Top>0.02431in</Top>
+        <Height>6.03125in</Height>
         <Width>10.5in</Width>
         <Style>
           <FontStyle>=Code.StyleSheetValue("DetailStyle")</FontStyle>
@@ -383,13 +392,13 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>6.72556in</Height>
+    <Height>6.05556in</Height>
     <Style />
   </Body>
   <Width>10.5in</Width>
   <Page>
     <PageHeader>
-      <Height>0.8in</Height>
+      <Height>0.78055in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -399,8 +408,9 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
               <Source>External</Source>
               <Value>=Code.GetFirmLogo(ReportItems!FirmLogo.Value)</Value>
               <Sizing>FitProportional</Sizing>
-              <Left>8.65833in</Left>
-              <Height>0.7in</Height>
+              <Top>0.125in</Top>
+              <Left>8.25in</Left>
+              <Height>0.46896in</Height>
               <Width>1.84167in</Width>
               <Style>
                 <Border>
@@ -409,6 +419,7 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
               </Style>
             </Image>
             <Textbox Name="txtReportHeading2">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -417,45 +428,36 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
                       <Value>=Code.GetReportHeading1(ReportItems!ReportHeading1.Value)</Value>
                       <Style>
                         <FontStyle>=Code.StyleSheetValue("PortfolioNameStyle")</FontStyle>
-                        <FontFamily>=Code.StyleSheetValue("PortfolioNameFamily")</FontFamily>
-                        <FontSize>=Code.StyleSheetValue("PortfolioNameSize")</FontSize>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>=Code.StyleSheetValue("PortfolioNameWeight")</FontWeight>
                         <TextDecoration>=Code.StyleSheetValue("PortfolioNameDecoration")</TextDecoration>
-                        <Color>=Code.StyleSheetValue("PortfolioNameColor")</Color>
+                        <Color>#046cb6</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
+                  <LeftIndent>0.15in</LeftIndent>
                   <Style>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.38444in</Top>
-              <Height>0.16in</Height>
+              <Top>0.13333in</Top>
+              <Left>0.00521in</Left>
+              <Height>0.07667in</Height>
               <Width>5in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
+                  <Width>0.3pt</Width>
                 </Border>
                 <BackgroundColor>=Code.StyleSheetValue("PortfolioNameBackgroundColor")</BackgroundColor>
                 <VerticalAlign>Bottom</VerticalAlign>
               </Style>
             </Textbox>
-            <Line Name="line2">
-              <Top>0.75in</Top>
-              <Height>0in</Height>
-              <Width>10.5in</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Color>=Code.StyleSheetValue("HeaderLineColor")</Color>
-                  <Style>Solid</Style>
-                  <Width>=Code.StyleSheetValue("HeaderLineWidth")</Width>
-                </Border>
-              </Style>
-            </Line>
             <Textbox Name="txtReportTitle">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -464,31 +466,34 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
                       <Value>=Code.GetReportTitle(ReportItems!ReportTitle.Value)</Value>
                       <Style>
                         <FontStyle>=Code.StyleSheetValue("ReportTitleStyle")</FontStyle>
-                        <FontFamily>=Code.StyleSheetValue("ReportTitleFamily")</FontFamily>
-                        <FontSize>=Code.StyleSheetValue("ReportTitleSize")</FontSize>
-                        <FontWeight>=Code.StyleSheetValue("ReportTitleWeight")</FontWeight>
+                        <FontFamily>Calibri</FontFamily>
+                        <FontSize>21pt</FontSize>
                         <TextDecoration>=Code.StyleSheetValue("ReportTitleDecoration")</TextDecoration>
-                        <Color>=Code.StyleSheetValue("ReportTitleColor")</Color>
+                        <Color>#000080</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
+                  <LeftIndent>0.15in</LeftIndent>
                   <Style>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.03194in</Top>
-              <Height>0.3in</Height>
+              <Height>0.13333in</Height>
               <Width>5in</Width>
-              <ZIndex>3</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
-                <Border />
+                <Border>
+                  <Style>None</Style>
+                  <Width>0.3pt</Width>
+                </Border>
                 <BackgroundColor>=Code.StyleSheetValue("ReportTitleBackgroundColor")</BackgroundColor>
                 <VerticalAlign>Bottom</VerticalAlign>
                 <PaddingRight>2pt</PaddingRight>
               </Style>
             </Textbox>
             <Textbox Name="txtReportDate">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
@@ -497,33 +502,51 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
                       <Value>=Code.GetReportDate(ReportItems!ReportDate.Value)</Value>
                       <Style>
                         <FontStyle>=Code.StyleSheetValue("ReportDateStyle")</FontStyle>
-                        <FontFamily>=Code.StyleSheetValue("ReportDateFamily")</FontFamily>
-                        <FontSize>=Code.StyleSheetValue("ReportDateSize")</FontSize>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>11pt</FontSize>
                         <FontWeight>=Code.StyleSheetValue("ReportDateWeight")</FontWeight>
                         <TextDecoration>=Code.StyleSheetValue("ReportDateDecoration")</TextDecoration>
-                        <Color>=Code.StyleSheetValue("ReportDateColor")</Color>
+                        <Color>#046cb6</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
+                  <LeftIndent>0.15in</LeftIndent>
                   <Style>
                     <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.57944in</Top>
-              <Height>0.16in</Height>
+              <Top>0.21in</Top>
+              <Left>0.00521in</Left>
+              <Height>0.13396in</Height>
               <Width>5in</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
-                <Border />
+                <Border>
+                  <Style>None</Style>
+                  <Width>0.3pt</Width>
+                </Border>
                 <BackgroundColor>=Code.StyleSheetValue("ReportDateBackgroundColor")</BackgroundColor>
                 <VerticalAlign>Bottom</VerticalAlign>
                 <PaddingRight>2pt</PaddingRight>
               </Style>
             </Textbox>
+            <Line Name="line2">
+              <Top>0.59396in</Top>
+              <Height>0in</Height>
+              <Width>10.5in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Color>#262d71</Color>
+                  <Style>Solid</Style>
+                  <Width>0.03in</Width>
+                </Border>
+              </Style>
+            </Line>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Height>0.8in</Height>
+          <Height>0.72847in</Height>
           <Width>10.5in</Width>
           <Style>
             <Border>
@@ -538,60 +561,6 @@ iif((not isnothing(Fields!ReportHeading2.Value) and isnothing(Fields!ReportHeadi
         </Border>
       </Style>
     </PageHeader>
-    <PageFooter>
-      <Height>0.3in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Line Name="line1">
-          <Top>0.01042in</Top>
-          <Height>0in</Height>
-          <Width>10.5in</Width>
-          <Style>
-            <Border>
-              <Color>=Code.StyleSheetValue("FooterLineColor")</Color>
-              <Style>Solid</Style>
-              <Width>=Code.StyleSheetValue("FooterLineWidth")</Width>
-            </Border>
-          </Style>
-        </Line>
-        <Textbox Name="FirmName">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=ReportItems!FooterText.Value</Value>
-                  <Style>
-                    <FontStyle>=Code.StyleSheetValue("FirmNameStyle")</FontStyle>
-                    <FontFamily>=Code.StyleSheetValue("FirmNameFamily")</FontFamily>
-                    <FontSize>=Code.StyleSheetValue("FirmNameSize")</FontSize>
-                    <FontWeight>=Code.StyleSheetValue("FirmNameWeight")</FontWeight>
-                    <TextDecoration>=Code.StyleSheetValue("FirmNameDecoration")</TextDecoration>
-                    <Color>=Code.StyleSheetValue("FirmNameColor")</Color>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <Top>0.06042in</Top>
-          <Height>0.2in</Height>
-          <Width>10.5in</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border />
-            <BackgroundColor>=Code.StyleSheetValue("FirmNameBackgroundColor")</BackgroundColor>
-            <VerticalAlign>Middle</VerticalAlign>
-            <PaddingLeft>2pt</PaddingLeft>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style />
-    </PageFooter>
     <PageHeight>8.5in</PageHeight>
     <PageWidth>11in</PageWidth>
     <InteractiveHeight>0in</InteractiveHeight>
